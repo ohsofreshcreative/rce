@@ -153,8 +153,6 @@ class ComposerStaticInit98f3e1b0ed14492de67a0e6fcacef8b0
             'Dotenv\\' => 7,
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Lexer\\' => 22,
-            'Database\\Seeders\\' => 17,
-            'Database\\Factories\\' => 19,
         ),
         'C' => 
         array (
@@ -493,14 +491,6 @@ class ComposerStaticInit98f3e1b0ed14492de67a0e6fcacef8b0
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/src',
         ),
-        'Database\\Seeders\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laravel/pint/database/seeders',
-        ),
-        'Database\\Factories\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laravel/pint/database/factories',
-        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
@@ -520,13 +510,11 @@ class ComposerStaticInit98f3e1b0ed14492de67a0e6fcacef8b0
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
-            1 => __DIR__ . '/..' . '/laravel/pint/app',
         ),
     );
 
     public static $classMap = array (
         'App\\Blocks\\Accordion' => __DIR__ . '/../..' . '/app/Blocks/Accordion.php',
-        'App\\Blocks\\AreaBlock' => __DIR__ . '/../..' . '/app/Blocks/AreaBlock.php',
         'App\\Blocks\\BottomBlock' => __DIR__ . '/../..' . '/app/Blocks/BottomBlock.php',
         'App\\Blocks\\Cards' => __DIR__ . '/../..' . '/app/Blocks/Cards.php',
         'App\\Blocks\\Cases' => __DIR__ . '/../..' . '/app/Blocks/Cases.php',
@@ -541,21 +529,24 @@ class ComposerStaticInit98f3e1b0ed14492de67a0e6fcacef8b0
         'App\\Blocks\\Faq' => __DIR__ . '/../..' . '/app/Blocks/Faq.php',
         'App\\Blocks\\Gallery' => __DIR__ . '/../..' . '/app/Blocks/Gallery.php',
         'App\\Blocks\\Hero' => __DIR__ . '/../..' . '/app/Blocks/Hero.php',
-        'App\\Blocks\\HeroCases' => __DIR__ . '/../..' . '/app/Blocks/HeroCases.php',
+        'App\\Blocks\\HeroAbout' => __DIR__ . '/../..' . '/app/Blocks/HeroAbout.php',
         'App\\Blocks\\HeroOffer' => __DIR__ . '/../..' . '/app/Blocks/HeroOffer.php',
         'App\\Blocks\\HeroSecond' => __DIR__ . '/../..' . '/app/Blocks/HeroSecond.php',
         'App\\Blocks\\History' => __DIR__ . '/../..' . '/app/Blocks/History.php',
         'App\\Blocks\\HomeAbout' => __DIR__ . '/../..' . '/app/Blocks/HomeAbout.php',
         'App\\Blocks\\Image' => __DIR__ . '/../..' . '/app/Blocks/Image.php',
         'App\\Blocks\\Jobs' => __DIR__ . '/../..' . '/app/Blocks/Jobs.php',
+        'App\\Blocks\\Logos' => __DIR__ . '/../..' . '/app/Blocks/Logos.php',
         'App\\Blocks\\Map' => __DIR__ . '/../..' . '/app/Blocks/Map.php',
         'App\\Blocks\\Numbers' => __DIR__ . '/../..' . '/app/Blocks/Numbers.php',
         'App\\Blocks\\OfferCardsBlock' => __DIR__ . '/../..' . '/app/Blocks/OfferCardsBlock.php',
         'App\\Blocks\\Offers' => __DIR__ . '/../..' . '/app/Blocks/Offers.php',
         'App\\Blocks\\Overlap' => __DIR__ . '/../..' . '/app/Blocks/Overlap.php',
         'App\\Blocks\\Proces' => __DIR__ . '/../..' . '/app/Blocks/Proces.php',
+        'App\\Blocks\\Quote' => __DIR__ . '/../..' . '/app/Blocks/Quote.php',
         'App\\Blocks\\Reviews' => __DIR__ . '/../..' . '/app/Blocks/Reviews.php',
         'App\\Blocks\\Slides' => __DIR__ . '/../..' . '/app/Blocks/Slides.php',
+        'App\\Blocks\\Tabs' => __DIR__ . '/../..' . '/app/Blocks/Tabs.php',
         'App\\Blocks\\Team' => __DIR__ . '/../..' . '/app/Blocks/Team.php',
         'App\\Blocks\\Template' => __DIR__ . '/../..' . '/app/Blocks/Template.php',
         'App\\Blocks\\TextImage' => __DIR__ . '/../..' . '/app/Blocks/TextImage.php',
