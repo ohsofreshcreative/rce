@@ -1,14 +1,8 @@
 @php
 // --- Zmienne dla sekcji ---
 $sectionClass = '';
-$sectionClass .= $flip ? ' order-flip' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
-$sectionClass .= $gap ? ' wider-gap' : '';
-$sectionClass .= $lightbg ? ' section-light' : '';
-$sectionClass .= $graybg ? ' section-gray' : '';
-$sectionClass .= $whitebg ? ' section-white' : '';
-$sectionClass .= $brandbg ? ' section-brand' : '';
 
 $sectionId = $block->data['id'] ?? null;
 $customClass = $block->data['className'] ?? '';
@@ -17,76 +11,79 @@ $customClass = $block->data['className'] ?? '';
 $args = [
 'post_type' => 'cases',
 'posts_per_page' => -1,
+'no_found_rows' => false,
 ];
 $cases = new WP_Query($args);
-
-// --- [FIX 1] Pobieranie tła dla sekcji ---
-// Użyj pola ACF dla bloku, aby ustawić tło. To najbardziej elastyczne rozwiązanie.
-// Nazwij to pole np. `background_image`.
-$background_image_url = '';
-$background_field = get_field('background_image'); // Pobierz pole ACF
-if ($background_field && is_array($background_field)) {
-$background_image_url = $background_field['url'];
-}
-// Alternatywa: jeśli chcesz tło z pierwszego posta na liście
-// if ($cases->have_posts()) {
-// $background_image_url = get_the_post_thumbnail_url($cases->posts[0]->ID, 'full');
-// }
+$total_slides = $cases->found_posts;
 @endphp
 
 <!-- cases-slider -->
-
 <section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="cases-slider c-main relative -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
 
-	@if ($title)
-	<h2 data-gsap-element="header" class="__before">{{ $title }}</h2>
-	@endif
+	<div class="cases-slider-wrapper grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center" data-total-slides="{{ $total_slides }}">
 
-	@if ($cases->have_posts())
-	{{-- [FIX 2] Struktura Swiper Slider --}}
-	<div class="swipers cases-swiper !overflow-visible mt-10">
+		@if ($cases->have_posts())
 
-		{{-- Strzałki nawigacji --}}
-		<div data-gsap-element="arrows" class="__arrows absolute flex gap-4 z-10">
-			<div class="swiper-button-prev">
-				<svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24" fill="none">
-					<path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0L11.5 12.0235L0.5 24L6.26389 12.0706L0.5 0Z" fill="white" />
-				</svg>
-				</svg>
-			</div>
-
-			<div class="swiper-button-next">
-				<svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24" fill="none">
-					<path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0L11.5 12.0235L0.5 24L6.26389 12.0706L0.5 0Z" fill="white" />
-				</svg>
-			</div>
-		</div>
-
-		{{-- Kontener na slajdy --}}
-		<div class="swiper-wrapper">
-			@while ($cases->have_posts()) @php $cases->the_post(); @endphp
-			{{-- Pojedynczy slajd --}}
-			<div class="swiper-slide">
-				<div data-gsap-element="card" class="__card p-14 lg:p-26 pb-0 b-border" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.90) 0%, rgba(0, 0, 0, 0.4) 100%), url('{{ get_the_post_thumbnail_url(get_the_ID(), 'large') }}'); background-size: cover; background-position: center;">
-
-					<div class="__content order-1 lg:order-2 mt-40 -mb-6">
-						<h4 class="text-white">{{ get_the_title() }}</h4>
-
-						<div class="text-white mt-2">
-							{{ get_the_excerpt() }}
+		<div class="cases-text-col order-2 lg:order-1">
+			<div class="swiper swiper-text">
+				<div class="swiper-wrapper">
+					@while ($cases->have_posts()) @php $cases->the_post(); @endphp
+					<div class="swiper-slide">
+						<div class="case-content">
+							@if ($title)
+							<h2 data-gsap-element="header" class="mb-6">{{ $title }}</h2>
+							@endif
+							<h4 class="m-title">{{ get_the_title() }}</h4>
+							<div class="text-content my-4">
+								{{ get_the_excerpt() }}
+							</div>
+							<a class="stroke-btn m-btn mt-4" href="{{ get_permalink() }}">Dowiedz się więcej</a>
 						</div>
+					</div>
+					@endwhile
+				</div>
+			</div>
 
-						<a class="main-btn m-btn mt-4 inline-block" href="{{ get_permalink() }}">Dowiedz się więcej</a>
+			@if ($total_slides > 1)
+			<div class="flex items-center gap-6 mt-8">
+				{{-- [FIX] Dodany element licznika --}}
+				<div class="slide-counter text-sm font-semibold text-gray-600 w-12 text-center"></div>
+
+				<div class="progress-container flex-grow h-px bg-gray-300 relative">
+					<div class="progress-bar bg-primary h-[3px] w-0 absolute top-1/2 -translate-y-1/2 left-0 transition-all duration-300 ease-out"></div>
+				</div>
+				<div class="cases-slider-nav flex gap-8 z-10">
+					<div class="swiper-button-prev b-corners-xs">
+						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+							<path d="M11.7589 4.48624C11.7587 4.48602 11.7585 4.48577 11.7582 4.48555L7.4635 0.711353C7.14176 0.428615 6.62136 0.429667 6.3011 0.71382C5.98089 0.997937 5.98212 1.45748 6.30386 1.74026L9.18731 4.27419H0.821917C0.367972 4.27419 0 4.59914 0 5C0 5.40086 0.367972 5.72581 0.821917 5.72581H9.18727L6.3039 8.25974C5.98216 8.54252 5.98093 9.00206 6.30114 9.28618C6.6214 9.57037 7.14184 9.57135 7.46354 9.28865L11.7582 5.51445C11.7585 5.51423 11.7587 5.51398 11.759 5.51376C12.0809 5.23005 12.0798 4.76901 11.7589 4.48624Z" fill="white" />
+						</svg>
+					</div>
+					<div class="swiper-button-next b-corners-xs">
+						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+							<path d="M11.7589 4.48624C11.7587 4.48602 11.7585 4.48577 11.7582 4.48555L7.4635 0.711353C7.14176 0.428615 6.62136 0.429667 6.3011 0.71382C5.98089 0.997937 5.98212 1.45748 6.30386 1.74026L9.18731 4.27419H0.821917C0.367972 4.27419 0 4.59914 0 5C0 5.40086 0.367972 5.72581 0.821917 5.72581H9.18727L6.3039 8.25974C5.98216 8.54252 5.98093 9.00206 6.30114 9.28618C6.6214 9.57037 7.14184 9.57135 7.46354 9.28865L11.7582 5.51445C11.7585 5.51423 11.7587 5.51398 11.759 5.51376C12.0809 5.23005 12.0798 4.76901 11.7589 4.48624Z" fill="white" />
+						</svg>
 					</div>
 				</div>
 			</div>
-			@endwhile
+			@endif
 		</div>
 
-	</div>
-	@php wp_reset_postdata(); @endphp
-	@else
-	<p>Brak realizacji do wyświetlenia.</p>
-	@endif
+		<div class="cases-image-col order-1 lg:order-2">
+			<div class="swiper swiper-images b-corners-s">
+				<div class="swiper-wrapper">
+					@php $cases->rewind_posts(); @endphp
+					@while ($cases->have_posts()) @php $cases->the_post(); @endphp
+					<div class="swiper-slide">
+						<img class="img-xl w-full h-full object-cover" src="{{ get_the_post_thumbnail_url(get_the_ID(), 'large') }}" alt="{{ get_the_title() }}">
+					</div>
+					@endwhile
+				</div>
+			</div>
+		</div>
 
+		@php wp_reset_postdata(); @endphp
+		@else
+		<p>Brak realizacji do wyświetlenia.</p>
+		@endif
+	</div>
 </section>

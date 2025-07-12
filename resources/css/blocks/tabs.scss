@@ -1,0 +1,47 @@
+.tabs .tab-button {
+  position: relative;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.tabs .tab-button::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid var(--primary);
+}
+
+.tabs .tab-button:hover {
+  border-color: var(--p-200); 
+}
+
+.tabs .tab-button:hover::after {
+  border-top-color: var(--p-200);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tabs .tab-button.is-active {
+  border-color: var(--primary);
+}
+
+.tabs .tab-button.is-active::after {
+  border-top-color: var(--primary);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tabs .tab-content {
+  transition: height 0.3s ease-in-out;
+  min-height: 300px; 
+  margin-top: 20px;
+}

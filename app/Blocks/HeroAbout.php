@@ -5,11 +5,11 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class HeroCases extends Block
+class HeroAbout extends Block
 {
-	public $name = 'Sekcja Hero - Realizacje';
-	public $description = 'hero-cases';
-	public $slug = 'hero-cases';
+	public $name = 'Sekcja Hero - O nas';
+	public $description = 'hero-about';
+	public $slug = 'hero-about';
 	public $category = 'formatting';
 	public $icon = 'align-full-width';
 	public $keywords = ['tresc', 'zdjecie'];
@@ -22,10 +22,10 @@ class HeroCases extends Block
 
 	public function fields()
 	{
-		$hero_cases = new FieldsBuilder('hero-cases');
+		$hero_about = new FieldsBuilder('hero-about');
 
-		$hero_cases
-			->setLocation('block', '==', 'acf/hero-cases') // ważne!
+		$hero_about
+			->setLocation('block', '==', 'acf/hero-about') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
@@ -36,13 +36,20 @@ class HeroCases extends Block
 				'multi_expand' => true,
 			])
 			->addTab('Treść', ['placement' => 'top']) 
-			->addGroup('g_herocases', ['label' => 'Hero - Pojedyncza oferta'])
+			->addGroup('g_heroabout', ['label' => 'Hero - Pojedyncza oferta'])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 			])
+			->addText('subtitle', ['label' => 'Śródtytuł'])
 			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
+			])
 
 			->endGroup()
 
@@ -53,16 +60,19 @@ class HeroCases extends Block
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
-			]);
+			])
 
-		return $hero_cases;
+			->addText('blockclass', ['label' => 'Klasa bloku']);
+
+		return $hero_about;
 	}
 
 	public function with()
 	{
 		return [
-			'g_herocases' => get_field('g_herocases'),
+			'g_heroabout' => get_field('g_heroabout'),
 			'flip' => get_field('flip'),
+			'blockclass' => get_field('blockclass'),
 		];
 	}
 }

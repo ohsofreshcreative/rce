@@ -1,4 +1,12 @@
-<div class="block-category-posts -smt {{ $flip ? 'flip' : '' }} layout-{{ $layout }}">
+@php
+$sectionClass = '';
+$sectionClass .= $whitebg ? ' section-white' : '';
+
+$sectionId = $block->data['id'] ?? null;
+$customClass = $block->data['className'] ?? '';
+@endphp
+
+<div class="block-category-posts -smt layout-{{ $layout }} {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}"  @if($sectionId) id="{{ $sectionId }}" @endif>
 	<div class="c-main">
 		<div class="flex justify-between items-center mb-10">
 			<h2 class="block-title">{{ $posts_settings['title'] }}</h2>
@@ -6,7 +14,7 @@
 			@if($category_id)
 			<div class="view-all-container text-center">
 				<a class="main-btn" href="{{ get_category_link($category_id) }}" class="btn btn-primary view-all-posts">
-					Zobacz wszystkie wpisy
+					Wszystkie artykuły
 				</a>
 			</div>
 			@endif
@@ -19,7 +27,7 @@
 				@if($show_image && has_post_thumbnail($post->ID))
 				<div class="post-image img-xs m-img">
 					<a href="{{ get_permalink($post->ID) }}">
-						{!! get_the_post_thumbnail($post->ID, 'medium') !!}
+						{!! get_the_post_thumbnail($post->ID, 'large') !!}
 					</a>
 				</div>
 				@endif

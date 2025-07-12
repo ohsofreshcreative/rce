@@ -157,13 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const swipers = document.querySelectorAll('.usage-swiper');
+  const swipers = document.querySelectorAll('.reviews-swiper');
 
   if (swipers.length > 0) {
     swipers.forEach((container) => {
       new Swiper(container, {
-        slidesPerView: 3,
-        spaceBetween: 30,
+        slidesPerView: 1,
+        spaceBetween: 120,
         loop: true,
         pagination: {
           el: container.querySelector('.swiper-pagination'),
@@ -228,88 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const svgs = gsap.utils.toArray('.animated-svg');
-
-  svgs.forEach((svg, index) => {
-    const path = svg.querySelector('path'); // Get the path inside the SVG
-
-    gsap.set(path, {
-      stroke: '#E30613',
-      strokeWidth: 1,
-      fill: 'transparent',
-      strokeDasharray: 2500, // Adjust as needed
-      strokeDashoffset: 2500, // Adjust as needed
-    });
-
-    let delay = 0;
-    if (index === 1) {
-      // Apply delay only to the second SVG
-      delay = 0.2;
-    }
-
-    gsap.to(path, {
-      scrollTrigger: {
-        trigger: svg, // Element, który uruchamia animację
-        start: 'top bottom-=200px', // Kiedy góra elementu dotknie dołu okna
-        once: true, // Animacja uruchomi się tylko raz
-      },
-      delay: delay,
-      duration: 1.5,
-      strokeDashoffset: 0,
-      ease: 'linear',
-      onComplete: () => {
-        gsap.to(path, {
-          duration: 0.7,
-          fill: '#E30613',
-          ease: 'linear',
-        });
-      },
-    });
-  });
-});
-
-/*--- WHITE SVG ANIMATION ---*/
-
-document.addEventListener('DOMContentLoaded', function () {
-  const svgs = gsap.utils.toArray('.white-svg');
-
-  svgs.forEach((svg, index) => {
-    const path = svg.querySelector('path');
-
-    gsap.set(path, {
-      stroke: '#FFF',
-      strokeWidth: 1,
-      fill: 'transparent',
-      strokeDasharray: 2500,
-      strokeDashoffset: 2500,
-    });
-
-    let delay = 0;
-    if (index === 1) {
-      delay = 0.2;
-    }
-
-    gsap.to(path, {
-      scrollTrigger: {
-        trigger: svg, // Element, który uruchamia animację
-        start: 'top bottom-=200px', // Kiedy góra elementu dotknie dołu okna
-        once: true, // Animacja uruchomi się tylko raz
-      },
-      delay: delay,
-      duration: 1.5,
-      strokeDashoffset: 0,
-      ease: 'linear',
-      onComplete: () => {
-        gsap.to(path, {
-          duration: 0.7,
-          fill: '#FFF',
-          ease: 'linear',
-        });
-      },
-    });
-  });
-});
 
 /*--- STICKY CONTAINER ANIMATION ---*/
 

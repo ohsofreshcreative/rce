@@ -1,0 +1,66 @@
+.reviews {
+  .reviews-swiper.is-inset {
+    padding-left: 16%;
+    padding-right: 16%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    transition: all 0.2s ease-out;
+    margin-top: 0;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: var(--s-300);
+    transition: all 0.2s ease-out;
+  }
+
+  .swiper-button-next svg,
+  .swiper-button-prev svg {
+    width: 16px;
+    height: 12px;
+  }
+
+  .swiper-button-prev {
+    transform: translateY(-50%) scaleX(-1);
+  }
+
+  .swiper-button-next {
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    content: '';
+  }
+
+  .__img {
+    min-width: 80px;
+    min-height: 80px;
+    width: 80px;
+    height: 80px;
+    padding: 16px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .reviews {
+    .swiper-button-prev {
+      left: 10px;
+    }
+    .swiper-button-next {
+      right: 10px;
+    }
+  }
+}

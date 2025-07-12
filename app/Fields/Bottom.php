@@ -34,10 +34,19 @@ class Bottom extends Field
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 			])
-			->addText('subtitle', ['label' => 'Śródtytuł'])
+			
+			->addImage('logo', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'medium',
+			])
 			->addText('title', ['label' => 'Tytuł'])
 			->addText('phone', ['label' => 'Telefon'])
 			->addText('mail', ['label' => 'Adres e-mail'])
+			->addText('shortcode', [
+				'label' => 'Kod formularza',
+				'instructions' => 'Wklej shortcode formularza, np. [contact-form-7 id="84690e3" title="Contact form 1"]',
+			])
 			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/

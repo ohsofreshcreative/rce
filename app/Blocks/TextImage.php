@@ -79,6 +79,18 @@ class TextImage extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
+			->addTrueFalse('side', [
+				'label' => 'Marginesy boczne',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('cut', [
+				'label' => 'Przycięte rogi',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
 			->addTrueFalse('gap', [
 				'label' => 'Większy odstęp',
 				'ui' => 1,
@@ -108,16 +120,6 @@ class TextImage extends Block
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
-			])
-			->addImage('bgimage', [
-				'label' => 'Obraz w tle #1',
-				'return_format' => 'array',
-				'preview_size' => 'medium',
-			])
-			->addImage('bgimage2', [
-				'label' => 'Obraz w tle #2',
-				'return_format' => 'array',
-				'preview_size' => 'medium',
 			]);
 
 		return $text_image;
@@ -130,13 +132,13 @@ class TextImage extends Block
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
+			'side' => get_field('side'),
+			'cut' => get_field('cut'),
 			'gap' => get_field('gap'),
 			'lightbg' => get_field('lightbg'),
 			'graybg' => get_field('graybg'),
 			'whitebg' => get_field('whitebg'),
 			'brandbg' => get_field('brandbg'),
-			'bgimage' => get_field('bgimage'),
-			'bgimage2' => get_field('bgimage2'),
 		];
 	}
 }

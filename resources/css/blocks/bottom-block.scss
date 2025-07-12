@@ -1,0 +1,24 @@
+.cta-bottom {
+  .wpcf7-list-item {
+    margin-left: 0;
+    label {
+      font-size: 12px;
+      line-height: 1.3em;
+      display: flex;
+      align-items: start;
+    }
+  }
+  .__phone::before {
+    content: url('http://raab.local/wp-content/uploads/2025/06/phone.svg');
+    margin-right: 16px;
+    position: relative;
+    top: 4px;
+  }
+
+  .__mail::before {
+    content: url('http://raab.local/wp-content/uploads/2025/06/mail.svg');
+    margin-right: 16px;
+    position: relative;
+    top: 4px;
+  }
+}

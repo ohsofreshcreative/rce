@@ -7,7 +7,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class CategoryPosts extends Block
 {
-    public $name = 'Posty z kategorii';
+    public $name = 'Wpisy z kategorii';
     public $description = 'Wyświetla posty z wybranej kategorii';
     public $slug = 'category-posts';
     public $category = 'formatting';
@@ -31,7 +31,7 @@ class CategoryPosts extends Block
                 'required' => 0,
             ])
             ->addAccordion('accordion1', [
-                'label' => 'Ustawienia postów',
+                'label' => 'Wpisy z kategorii',
                 'open' => true,
                 'multi_expand' => true,
             ])
@@ -91,12 +91,12 @@ class CategoryPosts extends Block
                 'default_value' => 'grid',
                 'ui' => 1,
             ])
-            ->addTrueFalse('flip', [
-                'label' => 'Odwrotna kolejność',
-                'ui' => 1,
-                'ui_on_text' => 'Tak',
-                'ui_off_text' => 'Nie',
-            ]);
+			->addTrueFalse('whitebg', [
+				'label' => 'Białe tło',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			]);
 
         return $categoryPosts;
     }
@@ -127,7 +127,7 @@ class CategoryPosts extends Block
             'show_image' => $show_image,
             'show_excerpt' => $show_excerpt,
             'layout' => get_field('layout'),
-            'flip' => get_field('flip'),
+            'whitebg' => get_field('whitebg'),
         ];
     }
 }

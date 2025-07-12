@@ -38,32 +38,50 @@ class Reviews extends Block
 			/*--- FIELDS ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_reviews', ['label' => ''])
-
 			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('content', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
+			])
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
+			])
+			->endGroup()
 
-			->addRepeater('repeater', [
+			/*--- REVIEWS ---*/
+			->addTab('Opinie', ['placement' => 'top'])
+			->addRepeater('r_reviews', [
 				'label' => 'Slider - Opinie',
-				'layout' => 'table', // 'row', 'block', albo 'table'
+				'layout' => 'table',
 				'min' => 1,
 				'max' => 15,
 				'button_label' => 'Dodaj kafelek'
 			])
-			->addImage('card_image', [
+			->addImage('image', [
 				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
+				'return_format' => 'array',
 				'preview_size' => 'medium',
 			])
-			->addTextarea('card_txt', [
+			->addTextarea('txt', [
 				'label' => 'Opis',
-				'rows' => 4,
+				'rows' => 6,
 				'new_lines' => 'br',
 			])
-			->addText('card_name', [
+			->addTextArea('name', [
 				'label' => 'Klient',
+				'rows' => 3,
+				'new_lines' => 'br',
+			])
+			->addTextArea('job', [
+				'label' => 'Stanowisko',
+				'rows' => 3,
+				'new_lines' => 'br',
 			])
 			->endRepeater()
 
-			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -94,9 +112,7 @@ class Reviews extends Block
 	{
 		return [
 			'g_reviews' => get_field('g_reviews'),
-			'reviews' => get_field('g_reviews')['repeater'] ?? [],
-			'flip' => get_field('flip'),
-			'lightbg' => get_field('lightbg'),
+			'r_reviews' => get_field('r_reviews'),
 			'nomt' => get_field('nomt'),
 		];
 	}

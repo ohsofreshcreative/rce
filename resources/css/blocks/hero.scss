@@ -1,3 +1,17 @@
 .hero {
   background-position: 70% !important;
+
+  --hero-cut-size: 10vmin;
+
+  clip-path: polygon(
+    0% 0%,
+    /* lewy-górny */ calc(100% - var(--hero-cut-size)) 0%,
+    /* początek ścięcia prawy-górny */ 100% var(--hero-cut-size),
+    /* koniec ścięcia prawy-górny */ 100% 100%,
+    /* prawy-dolny */ var(--hero-cut-size) 100%,
+    /* początek ścięcia lewy-dolny */ 0% calc(100% - var(--hero-cut-size))
+      /* koniec ścięcia lewy-dolny */
+  );
 }
+
+

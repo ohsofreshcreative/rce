@@ -3,6 +3,8 @@ $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
+$sectionClass .= $side ? ' !mx-6' : '';
+$sectionClass .= $cut ? ' b-corners' : '';
 $sectionClass .= $gap ? ' wider-gap' : '';
 $sectionClass .= $lightbg ? ' section-light' : '';
 $sectionClass .= $graybg ? ' section-gray' : '';
@@ -39,13 +41,5 @@ $customClass = $block->data['className'] ?? '';
 			</div>
 
 		</div>
-		@if ($bgimage)
-		<img data-gsap-element="bg1" class="__bg--first absolute" src="{{ $bgimage['url'] }}" alt="{{ $bgimage['alt'] ?? '' }}">
-		@endif
-	</div>
-
-		@if ($bgimage2)
-		<img data-gsap-element="bg2" class="__bg--second absolute" src="{{ $bgimage2['url'] }}" alt="{{ $bgimage2['alt'] ?? '' }}">
-		@endif
 
 </section>
