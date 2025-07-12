@@ -3,11 +3,11 @@
         'name' => 'roots/sage',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'adc15e26be3bfee7fa8724aadc480385eb682ffc',
+        'reference' => '62693754b95bf355f866f5737a9b29cc1ba04feb',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => false,
+        'dev' => true,
     ),
     'versions' => array(
         'brick/math' => array(
@@ -352,6 +352,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'laravel/pint' => array(
+            'pretty_version' => 'v1.22.1',
+            'version' => '1.22.1.0',
+            'reference' => '941d1927c5ca420c22710e98420287169c7bcaf7',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../laravel/pint',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'laravel/prompts' => array(
             'pretty_version' => 'v0.3.5',
             'version' => '0.3.5.0',
@@ -614,7 +623,7 @@
         'roots/sage' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'adc15e26be3bfee7fa8724aadc480385eb682ffc',
+            'reference' => '62693754b95bf355f866f5737a9b29cc1ba04feb',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
