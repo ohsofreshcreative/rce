@@ -1,5 +1,6 @@
 @php
 $sectionClass = '';
+$sectionClass .= $nomt ? ' !mt-0' : '';
 $sectionClass .= $whitebg ? ' section-white' : '';
 
 $sectionId = $block->data['id'] ?? null;

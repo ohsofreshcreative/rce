@@ -1,20 +1,32 @@
 @php
-
-
+$categories = get_the_category();
 @endphp
 
-<section data-gsap-anim="section" class="{{ $sectionClass }}">
+<section data-gsap-anim="section" class="blog__top {{ $sectionClass }}">
 	<div class="__wrapper c-main pt-40">
-		<div class="__content grid grid-cols-1 md:grid-cols-2 gap-10 b-border-b pb-16 mb-18">
-			<h2 data-gsap-element="header" class="">{{ get_the_title() }}</h2>
+		<div class="__content text-center w-full md:w-2/3 m-auto">
+
+			@if (!empty($categories))
+			<a href="{{ get_category_link($categories[0]->term_id) }}" class="__category px-3 py-2">
+				{{ $categories[0]->name }}
+			</a>
+			@endif
+			<h1 data-gsap-element="header" class="m-title mt-8">{{ get_the_title() }}</h1>
 			@if(has_excerpt())
 			<div data-gsap-element="content" class="">
 				{!! get_the_excerpt() !!}
 			</div>
 			@endif
+			<div data-gsap-element="arrow" class="__arrow w-max m-btn b-corners-xs m-auto text-center">
+				<a href="#more" class="">
+					<svg class="" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M12.758 15.458L19.5982 8.61782L21.7363 10.7559L11.2461 21.2461L0.755941 10.7559L2.89407 8.61782L9.73422 15.458L9.73424 0.265759L12.758 0.265774L12.758 15.458Z" fill="white" />
+					</svg>
+				</a>
+			</div>
 		</div>
 		@if (has_post_thumbnail())
-		<img src="{{ get_the_post_thumbnail_url(null, 'full') }}" alt="{{ get_the_title() }}">
+		<img class="b-corners -smt" src="{{ get_the_post_thumbnail_url(null, 'full') }}" alt="{{ get_the_title() }}">
 		@endif
 	</div>
 </section>
@@ -77,68 +89,71 @@ preg_match_all('/<h([1-4])[^>]*>(.*?)<\/h[1-4]>/', $content, $matches, PREG_SET_
 					@endphp
 
 					@if($related_query->have_posts())
-					<section class="related-posts bg-lighter -smt pt-20 pb-26">
-					<div class="c-main">
-						<h3 class="text-2xl font-bold mb-6">Podobne wpisy</h3>
-						<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-							@while($related_query->have_posts())
-							@php($related_query->the_post())
-							<article @php(post_class())>
-								<header>
-									@if(has_post_thumbnail())
-									<a href="{{ get_permalink() }}">
-										{!! get_the_post_thumbnail(null, 'large', ['class' => 'featured-image img-xs m-img']) !!}
-									</a>
-									@endif
-
-									<h2 class="entry-title text-h5">
+					<section class="related-posts bg-light -smt pt-20 pb-26">
+						<div class="c-main">
+							<div class="flex justify-between">
+								<h3 class="text-2xl font-bold">Podobne wpisy</h3>
+								<a class="white-btn" href="/category/baza-wiedzy/">Wszystkie podobne</a>
+							</div>
+							<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+								@while($related_query->have_posts())
+								@php($related_query->the_post())
+								<article @php(post_class())>
+									<header>
+										@if(has_post_thumbnail())
 										<a href="{{ get_permalink() }}">
-											{{ get_the_title() }}
+											{!! get_the_post_thumbnail(null, 'large', ['class' => 'featured-image img-xs m-img']) !!}
 										</a>
-									</h2>
+										@endif
 
-								</header>
+										<h2 class="entry-title text-h5">
+											<a href="{{ get_permalink() }}">
+												{{ get_the_title() }}
+											</a>
+										</h2>
 
-								<a class="underline-btn m-btn" href="{{ get_permalink() }}">
-									Przeczytaj
-								</a>
-								
-							</article>
-							@endwhile
-							@php(wp_reset_postdata())
-						</div>
+									</header>
+
+									<a class="underline-btn m-btn" href="{{ get_permalink() }}">
+										Przeczytaj
+									</a>
+
+								</article>
+								@endwhile
+								@php(wp_reset_postdata())
+							</div>
 						</div>
 					</section>
 					@endif
 
 
-				<script>
-				document.addEventListener('DOMContentLoaded', function() {
-  const headings = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]'); // Select all headings with IDs
-  const tocLinks = document.querySelectorAll('.toc ul li a'); // Select all links in the TOC
+					<script>
+						document.addEventListener('DOMContentLoaded', function() {
+							const headings = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]'); // Select all headings with IDs
+							const tocLinks = document.querySelectorAll('.toc ul li a'); // Select all links in the TOC
 
-  function updateActiveLink() {
-    headings.forEach((heading) => {
-      const headingTop = heading.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+							function updateActiveLink() {
+								headings.forEach((heading) => {
+									const headingTop = heading.getBoundingClientRect().top;
+									const windowHeight = window.innerHeight;
 
-      if (headingTop < windowHeight - 300) {
-        // Remove the 'active' class from all TOC links
-        tocLinks.forEach((link) => {
-          link.parentNode.classList.remove('active');
-        });
+									if (headingTop < windowHeight - 300) {
+										// Remove the 'active' class from all TOC links
+										tocLinks.forEach((link) => {
+											link.parentNode.classList.remove('active');
+										});
 
-        // Add the 'active' class to the corresponding TOC link
-        const id = heading.id;
-        const activeLink = document.querySelector(`.toc ul li a[href="#${id}"]`);
-        if (activeLink) {
-          activeLink.parentNode.classList.add('active');
-        }
-      }
-    });
-  }
-  updateActiveLink();
+										// Add the 'active' class to the corresponding TOC link
+										const id = heading.id;
+										const activeLink = document.querySelector(`.toc ul li a[href="#${id}"]`);
+										if (activeLink) {
+											activeLink.parentNode.classList.add('active');
+										}
+									}
+								});
+							}
+							updateActiveLink();
 
-  window.addEventListener('scroll', updateActiveLink);
-});
+							window.addEventListener('scroll', updateActiveLink);
+						});
 					</script>

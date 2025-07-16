@@ -45,15 +45,13 @@ class Accordion extends Block
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_accordion', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
 
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 			])
-
-			->addText('subtitle', ['label' => 'Sródtytuł'])
+			->addText('title', ['label' => 'Tytuł'])
 
 			->addWysiwyg('content', [
 				'label' => 'Treść',

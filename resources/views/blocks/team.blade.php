@@ -3,56 +3,47 @@ $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
+$sectionClass .= $side ? ' !mx-6' : '';
+$sectionClass .= $cut ? ' b-corners' : '';
 $sectionClass .= $gap ? ' wider-gap' : '';
 $sectionClass .= $lightbg ? ' section-light' : '';
 $sectionClass .= $graybg ? ' section-gray' : '';
 $sectionClass .= $whitebg ? ' section-white' : '';
 $sectionClass .= $brandbg ? ' section-brand' : '';
+$sectionClass .= $gradient ? ' section-gradient' : '';
+
+$sectionId = $block->data['id'] ?? null;
+$customClass = $block->data['className'] ?? '';
 @endphp
 
-<section data-gsap-anim="section" class="cards -smt {{ $sectionClass }}">
-	<div class="__wrapper c-main">
+<!--- team -->
 
-			<div class="w-1/2">
-				<h2 class="__before m-title">{{ strip_tags($g_team['title']) }}</h2>
-				<div data-gsap-element="txt" class="">
-					{!! $g_team['content'] !!}
-				</div>
+<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="text-image relative -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
+
+	<div class="__wrapper c-main relative">
+		<div class="w-full md:w-1/2 m-auto text-center text-white">
+			<h1 data-gsap-element="header" class="m-title">{{ $g_team['title'] }}</h1>
+			<div data-gsap-element="txt" class="mt-2">
+				{!! $g_team['txt'] !!}
 			</div>
-
-			@if (!empty($repeater))
-			@php
-			$itemCount = count($repeater);
-			$gridCols = 1; // Domyślna wartość
-
-			if ($itemCount == 2 || $itemCount == 3) {
-			$gridCols = $itemCount;
-			} elseif ($itemCount >= 4) {
-			$gridCols = 2;
-			}
-
-			$gridClass = 'grid-cols-1'; // Domyślna klasa
-			if ($gridCols > 1) {
-			$gridClass = 'grid-cols-1 lg:grid-cols-' . $gridCols;
-			}
-			@endphp
-
-			<div class="grid {{ $gridClass }} pt-14 gap-8">
-				@foreach ($repeater as $item)
-				<div class="__card relative">
-					<img class="mb-6" src="{{ $item['card_image']['url'] }}" alt="{{ $item['card_image']['alt'] ?? '' }}" />
-					
-					<div class="b-border-l pl-5">
-						<h6 class="m-title">{{ $item['card_title'] }}</h6>
-						<i class="text-gray block">{{ $item['card_function'] }}</i>
-						<a class="primary" href="mailto:{{ $item['card_mail'] }}">{{ $item['card_mail'] }}</a>
-					</div>
-
-				</div>
-				@endforeach
+		</div>
+		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-10 mt-10">
+			@if (!empty($g_team['image']))
+			<div data-gsap-element="img" class="__img order1">
+				<img class="object-cover w-full __img img-m" src="{{ $g_team['image']['url'] }}" alt="{{ $g_team['image']['alt'] ?? '' }}">
 			</div>
 			@endif
 
-	</div>
+			<div class="__content order2">
+				<h4 data-gsap-element="header" class="">{{ $g_team['subtitle'] }}</h4>
+				<div data-gsap-element="txt" class="mt-2">
+					{!! $g_team['content'] !!}
+				</div>
+				@if (!empty($g_team['button']))
+				<a data-gsap-element="btn" class="main-btn m-btn" href="{{ $g_team['button']['url'] }}">{{ $g_team['button']['title'] }}</a>
+				@endif
+			</div>
+
+		</div>
 
 </section>

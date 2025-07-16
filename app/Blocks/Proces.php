@@ -37,22 +37,45 @@ class Proces extends Block
 			])
 			/*--- FIELDS ---*/
 			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('proces', ['label' => ''])
-
-			->addText('title', ['label' => 'Tytuł'])
-
-			->addRepeater('repeater', [
-				'label' => 'Proces',
-				'layout' => 'row', // 'row', 'block', albo 'table'
-				'min' => 5,
-				'min' => 5,
-				'button_label' => 'Dodaj element oferty'
+			->addGroup('g_proces', ['label' => ''])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'small',
 			])
-			->addText('proces_title', [
+			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
+			])
+			->endGroup()
+
+			/*--- TAB #2 ---*/
+			->addTab('Elementy', ['placement' => 'top'])
+
+			->addRepeater('r_proces', [
+				'label' => 'Proces',
+				'layout' => 'table', // 'row', 'block', albo 'table'
+				'min' => 5,
+				'min' => 5,
+				'button_label' => 'Dodaj element'
+			])
+			->addImage('r_image', [
+				'label' => 'Obraz',
+				'return_format' => 'array',
+				'preview_size' => 'medium',
+			])
+			->addText('r_title', [
 				'label' => 'Krok',
 			])
+			->addTextarea('r_txt', [
+				'label' => 'Opis',
+				'rows' => 4,
+				'new_lines' => 'br',
+			])
 			->endRepeater()
-			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -84,7 +107,8 @@ class Proces extends Block
 	public function with()
 	{
 		return [
-			'proces' => get_field('proces'),
+			'g_proces' => get_field('g_proces'),
+			'r_proces' => get_field('r_proces'),
 			'flip' => get_field('flip'),
 			'lightbg' => get_field('lightbg'),
 			'nomt' => get_field('nomt'),

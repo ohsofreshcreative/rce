@@ -13,7 +13,7 @@ class Faq extends Block
 	public $category = 'formatting';
 	public $icon = 'feedback';
 	public $keywords = ['faq'];
-	public $mode = 'edit'; 
+	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
@@ -41,8 +41,13 @@ class Faq extends Block
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('faq', ['label' => ''])
 			->addText('title', ['label' => 'Tytuł'])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array',
+				'preview_size' => 'medium',
+			])
 			->addWysiwyg('content', [
-				'label' => 'Treść',
+				'label' => 'Cytat',
 				'tabs' => 'all', // 'visual', 'text', 'all'
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
@@ -55,11 +60,11 @@ class Faq extends Block
 
 			/*--- TAB #2 ---*/
 			->addTab('FAQ', ['placement' => 'top'])
+			->addText('title', ['label' => 'Tytuł'])
 			->addRepeater('repeater', [
 				'label' => 'FAQ',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 1,
-				'max' => 4,
 				'button_label' => 'Dodaj pytanie'
 			])
 			->addText('title', [
@@ -71,7 +76,6 @@ class Faq extends Block
 			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
-
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
@@ -87,6 +91,7 @@ class Faq extends Block
 	{
 		return [
 			'faq' => get_field('faq'),
+			'title' => get_field('title'),
 			'repeater' => get_field('repeater'),
 			'flip' => get_field('flip'),
 		];

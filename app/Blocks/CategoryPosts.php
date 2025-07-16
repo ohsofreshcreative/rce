@@ -8,7 +8,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 class CategoryPosts extends Block
 {
     public $name = 'Wpisy z kategorii';
-    public $description = 'Wyświetla posty z wybranej kategorii';
+    public $description = 'CategoryPosts';
     public $slug = 'category-posts';
     public $category = 'formatting';
     public $icon = 'admin-post';
@@ -91,6 +91,12 @@ class CategoryPosts extends Block
                 'default_value' => 'grid',
                 'ui' => 1,
             ])
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
 			->addTrueFalse('whitebg', [
 				'label' => 'Białe tło',
 				'ui' => 1,
@@ -127,6 +133,7 @@ class CategoryPosts extends Block
             'show_image' => $show_image,
             'show_excerpt' => $show_excerpt,
             'layout' => get_field('layout'),
+			'nomt' => get_field('nomt'),
             'whitebg' => get_field('whitebg'),
         ];
     }

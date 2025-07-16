@@ -1,14 +1,13 @@
 .contact {
   .__data {
-	font-size:18px;
-    margin-left: 42px;
+    font-size: 18px;
   }
   .__phone {
     display: flex;
   }
 
   .__phone::before {
-    content: url('http://raab.local/wp-content/uploads/2025/06/phone-1.svg');
+    content: url('http://rce.local/wp-content/uploads/2025/07/phone.svg');
     margin-right: 16px;
     position: relative;
     top: 4px;
@@ -19,7 +18,7 @@
   }
 
   .__mail::before {
-    content: url('http://raab.local/wp-content/uploads/2025/06/mail-1.svg');
+    content: url('http://rce.local/wp-content/uploads/2025/07/mail.svg');
     margin-right: 16px;
     position: relative;
     top: 4px;
@@ -30,20 +29,42 @@
   }
 
   .__address::before {
-    content: url('http://raab.local/wp-content/uploads/2025/06/place.svg');
+    content: url('http://rce.local/wp-content/uploads/2025/07/address.svg');
     margin-right: 16px;
     position: relative;
     top: 4px;
   }
 
-  .__info {
-    display: flex;
+  .__form {
+    label {
+      display: block;
+    }
+    .wpcf7-list-item label {
+      display: flex;
+      align-items: start;
+    }
+    .wpcf7 form .wpcf7-response-output {
+      color: var(--body);
+      width: max-content;
+    }
   }
+}
 
-  .__info::before {
-    content: url('http://raab.local/wp-content/uploads/2025/06/doc.svg');
-    margin-right: 16px;
-    position: relative;
-    top: 4px;
+.contact.section-gradient {
+  background: var(--gradient) !important;
+  padding: var(--smt) 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  b,
+  strong,
+  i,
+  ul,
+  ul li {
+    color: unset !important;
   }
 }

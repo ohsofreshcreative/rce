@@ -68,6 +68,12 @@ class HeroOffer extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
+			->addTrueFalse('centered', [
+				'label' => 'Wyśrodkowanie elementów',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
 			->addTrueFalse('gfx_top', [
 				'label' => 'Grafika górna',
 				'ui' => 1,
@@ -89,6 +95,7 @@ class HeroOffer extends Block
 		return [
 			'g_herooffer' => get_field('g_herooffer'),
 			'flip' => get_field('flip'),
+			'centered' => get_field('centered'),
 			'gfx_top' => get_field('gfx_top'),
 			'gfx_bottom' => get_field('gfx_bottom'),
 		];

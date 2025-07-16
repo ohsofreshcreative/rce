@@ -5,14 +5,14 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Team extends Block
+class TextTwo extends Block
 {
-	public $name = 'Nasz zespół';
-	public $description = 'team';
-	public $slug = 'team';
+	public $name = 'Treść oraz dwa zdjęcia';
+	public $description = 'text-two';
+	public $slug = 'text-two';
 	public $category = 'formatting';
-	public $icon = 'admin-users';
-	public $keywords = ['team', 'zespol'];
+	public $icon = 'align-pull-left';
+	public $keywords = ['tresc', 'zdjecie'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -24,34 +24,33 @@ class Team extends Block
 
 	public function fields()
 	{
-		$team = new FieldsBuilder('team');
+		$text_two = new FieldsBuilder('text-two');
 
-		$team
-			->setLocation('block', '==', 'acf/team') // ważne!
+		$text_two
+			->setLocation('block', '==', 'acf/text-two') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Nasz zespół',
+				'label' => 'Treść oraz dwa zdjęcia',
 				'open' => false,
 				'multi_expand' => true,
 			])
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_team', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
-			->addTextarea('txt', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'new_lines' => 'br',
-			])
+			->addGroup('g_texttwo', ['label' => ''])
 			->addImage('image', [
-				'label' => 'Obraz',
+				'label' => 'Obraz #1',
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 			])
-			->addText('subtitle', ['label' => 'Śródtytuł'])
+			->addImage('image2', [
+				'label' => 'Obraz #2',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'medium',
+			])
+			->addText('title', ['label' => 'Tytuł'])
 			->addWysiwyg('content', [
 				'label' => 'Treść',
 				'tabs' => 'all', // 'visual', 'text', 'all'
@@ -126,21 +125,15 @@ class Team extends Block
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('gradient', [
-				'label' => 'Tło gradient',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
 			]);
 
-		return $team;
+		return $text_two;
 	}
 
 	public function with()
 	{
 		return [
-			'g_team' => get_field('g_team'),
+			'g_texttwo' => get_field('g_texttwo'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
@@ -151,7 +144,6 @@ class Team extends Block
 			'graybg' => get_field('graybg'),
 			'whitebg' => get_field('whitebg'),
 			'brandbg' => get_field('brandbg'),
-			'gradient' => get_field('gradient'),
 		];
 	}
 }

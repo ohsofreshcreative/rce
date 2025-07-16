@@ -41,6 +41,12 @@ class Logos extends Block
 			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
+			])
 
 			/*--- TAB #2 ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
@@ -63,7 +69,7 @@ class Logos extends Block
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
-		
+
 			->addTrueFalse('nomt', [
 				'label' => 'Usunięcie marginesu górnego',
 				'ui' => 1,
@@ -78,6 +84,7 @@ class Logos extends Block
 	{
 		return [
 			'title' => get_field('title'),
+			'txt' => get_field('txt'),
 			'r_logos' => get_field('r_logos'),
 			'nomt' => get_field('nomt'),
 		];

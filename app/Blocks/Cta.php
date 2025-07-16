@@ -44,6 +44,11 @@ class Cta extends Block
 				'preview_size' => 'medium',
 			])
 			->addText('title', ['label' => 'Tytuł'])
+			->addTextarea('txt', [
+				'label' => 'Opis',
+				'rows' => 4,
+				'new_lines' => 'br',
+			])
 			->addLink('button', [
 				'label' => 'Przycisk',
 				'return_format' => 'array',

@@ -12,13 +12,13 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 
 <!--- numbers --->
 
-<section data-gsap-anim="section" class="numbers c-main relative z-9 {{ $sectionClass }}"">
+<section data-gsap-anim="section" class="numbers c-main relative z-9 !mt-20 {{ $sectionClass }}"">
 
 	<div class="__wrapper px-0">
 		<div class="grid grid-cols-1 lg:grid-cols-4 items-center gap-8">
 
                 @foreach ($g_numbers['r_numbers'] as $item)
-                <div class="__card relative">
+                <div data-gsap-element="card" class="__card relative bg-white b-border b-corners-sm px-8 py-4">
                     <div class="big number-container" data-number="{{ $item['card_title'] }}">
                     </div>
                     <p class="text-lg">{{ $item['card_txt'] }}</p>

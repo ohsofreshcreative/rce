@@ -5,14 +5,14 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Team extends Block
+class Points extends Block
 {
-	public $name = 'Nasz zespół';
-	public $description = 'team';
-	public $slug = 'team';
+	public $name = 'Tekst oraz lista';
+	public $description = 'points';
+	public $slug = 'points';
 	public $category = 'formatting';
-	public $icon = 'admin-users';
-	public $keywords = ['team', 'zespol'];
+	public $icon = 'editor-ul';
+	public $keywords = ['points', 'lista'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -24,45 +24,55 @@ class Team extends Block
 
 	public function fields()
 	{
-		$team = new FieldsBuilder('team');
+		$points = new FieldsBuilder('points');
 
-		$team
-			->setLocation('block', '==', 'acf/team') // ważne!
+		$points
+			->setLocation('block', '==', 'acf/points') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Nasz zespół',
+				'label' => 'Tekst + kafelki',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- GROUP ---*/
-			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_team', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
-			->addTextarea('txt', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'new_lines' => 'br',
-			])
+
+			/*--- TAB #1 ---*/
+			->addTab('Treści', ['placement' => 'top'])
+			->addGroup('g_points', ['label' => ''])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 			])
+			->addText('title', ['label' => 'Tytuł'])
 			->addText('subtitle', ['label' => 'Śródtytuł'])
-			->addWysiwyg('content', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
-			])
-			->addLink('button', [
-				'label' => 'Przycisk',
-				'return_format' => 'array',
+			->addTextarea('text', [
+				'label' => 'Opis',
+				'rows' => 4,
+				'placeholder' => 'Wpisz opis...',
+				'new_lines' => 'br',
 			])
 			->endGroup()
+
+			/*--- TAB #2 ---*/
+			->addTab('Kafelki', ['placement' => 'top'])
+			->addImage('icon', [
+				'label' => 'Ikona listy',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'medium',
+			])
+			->addRepeater('r_points', [
+				'label' => 'Kafelki',
+				'layout' => 'table', // 'row', 'block', albo 'table'
+				'min' => 1,
+				'button_label' => 'Dodaj kafelek'
+			])
+			->addText('card_txt', [
+				'label' => 'Opis',
+			])
+			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -109,7 +119,7 @@ class Team extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('graybg', [
+			->addTrueFalse('greybg', [
 				'label' => 'Szare tło',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
@@ -134,13 +144,15 @@ class Team extends Block
 				'ui_off_text' => 'Nie',
 			]);
 
-		return $team;
+		return $points;
 	}
 
 	public function with()
 	{
 		return [
-			'g_team' => get_field('g_team'),
+			'g_points' => get_field('g_points'),
+			'r_points' => get_field('r_points'),
+			'icon' => get_field('icon'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
@@ -148,7 +160,7 @@ class Team extends Block
 			'cut' => get_field('cut'),
 			'gap' => get_field('gap'),
 			'lightbg' => get_field('lightbg'),
-			'graybg' => get_field('graybg'),
+			'greybg' => get_field('greybg'),
 			'whitebg' => get_field('whitebg'),
 			'brandbg' => get_field('brandbg'),
 			'gradient' => get_field('gradient'),

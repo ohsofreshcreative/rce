@@ -1,34 +1,51 @@
 @php
 $sectionClass = '';
+$sectionClass .= $flip ? ' order-flip' : '';
+$sectionClass .= $wide ? ' wide' : '';
+$sectionClass .= $nomt ? ' !mt-0' : '';
+$sectionClass .= $side ? ' !mx-6' : '';
+$sectionClass .= $cut ? ' b-corners' : '';
+$sectionClass .= $gap ? ' wider-gap' : '';
+$sectionClass .= $lightbg ? ' section-light' : '';
+$sectionClass .= $graybg ? ' section-gray' : '';
+$sectionClass .= $whitebg ? ' section-white' : '';
+$sectionClass .= $brandbg ? ' section-brand' : '';
+$sectionClass .= $gradient ? ' section-gradient' : '';
 @endphp
 
 <section data-gsap-anim="section" class="contact -spt {{ $sectionClass }}">
 
 	<div class="__wrapper c-main-wide relative z-2">
-		<h2 class="flex __before m-title w-full md:w-1/2">{!! $g_contact_1['title'] !!}</h2>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
 			<div class="__content w-full lg:w-11/12 flex flex-col justify-between">
-				<div class="__data">
-					<b class="">Kontakt</b>
-					<a class="__phone flex items-center w-max mt-4" href="tel:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['phone'] }}</a>
-					<a class="__mail flex items-center w-max" href="mailto:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['mail'] }}</a>
-					<b class="block mt-8">Adres</b>
-					<div class="__address mt-4">{!! $g_contact_1['adres'] !!}</div>
-					<b class="block mt-8">Dane spółki</b>
-					<div class="__info mt-4">{!! $g_contact_1['data'] !!}</div>
-
-					<a class="stroke-btn mt-16" href="#map" target="__blank">Sprawdź dojazd</a>
+				<div>
+					@if (!empty($g_contact_1['logo']))
+					<div data-gsap-element="logo" class="__img order1 m-img">
+						<img class="" src="{{ $g_contact_1['logo']['url'] }}" alt="{{ $g_contact_1['logo']['alt'] ?? '' }}">
+					</div>
+					<div data-gsap-element="txt" class="text-white">{{ $g_contact_1['txt'] }}</div>
+					@endif
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+						<div data-gsap-element="data" class="__data">
+							<a class="__phone flex items-center w-max mt-4 text-white" href="tel:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['phone'] }}</a>
+							<a class="__mail flex items-center w-max text-white" href="mailto:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['mail'] }}</a>
+						</div>
+						<div data-gsap-element="address" class="__address mt-4 text-white">{!! $g_contact_1['adres'] !!}</div>
+					</div>
 				</div>
+
+				@if (!empty($g_contact_1['image']))
+				<div data-gsap-element="img" class="__img order1 mt-10">
+					<img class="object-cover w-full __img img-l" src="{{ $g_contact_1['image']['url'] }}" alt="{{ $g_contact_1['image']['alt'] ?? '' }}">
+				</div>
+				@endif
 			</div>
-			<div class="__form b-border bg-white p-10 ">
-				<h2>{{ $g_contact_2['title'] }}</h2>
-				<div class="contact-form-container">
+			<div data-gsap-element="form" class="__form b-border bg-white p-10 ">
+				<h3>{{ $g_contact_2['title'] }}</h3>
+				<div class="contact-form-container mt-6">
 					{!! do_shortcode($g_contact_2['shortcode']) !!}
 				</div>
 			</div>
 		</div>
 	</div>
-	<svg class="absolute top-0 right-0 z-1 opacity-10 lg:opacity-100" xmlns="http://www.w3.org/2000/svg" width="928" height="1098" viewBox="0 0 928 1098" fill="none">
-		<path fill-rule="evenodd" clip-rule="evenodd" d="M250.351 0C250.351 0 88.4237 151.307 6.10352e-05 233.931L928 1097.67L927.439 531.5L762.568 239.794L896.513 0H250.351Z" fill="#E30613" />
-	</svg>
 </section>

@@ -5,32 +5,38 @@ $sectionClass .= $lightbg ? ' section-light' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
 @endphp
 
-<section data-gsap-anim="section" class="proces -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" class="g_proces -smt {{ $sectionClass }}">
 	<div class="__wrapper c-main-wide">
 		<div class="relative">
-
-			@if (!empty($proces['title']))
-			<h2 class="__txt mb-10 font-medium">{{ strip_tags($proces['title']) }}</h2>
-			@endif
-
-			@if (!empty($proces['repeater']))
-			<div class="gap-8 grid grid-cols-1 lg:grid-cols-5">
-
-				@foreach ($proces['repeater'] as $item)
-				<div data-gsap-element="stagger" class="flex flex-col z-10">
-					<div class="__nr rounded-full flex justify-center items-center bg-primary w-10 h-10">
-						{{ $loop->iteration }}
-					</div>
-					<h6 class="__content mt-6">{{ $item['proces_title'] }}</h6>
-					<div class="w-8 h-8 rounded-full border-2 b-border-4 bg-white z-10 mt-10"></div>
+			<div class="w-full md:w-1/2">
+				@if (!empty($g_proces['image']))
+				<div data-gsap-element="img" class="__img mb-6">
+					<img class="" src="{{ $g_proces['image']['url'] }}" alt="{{ $g_proces['image']['alt'] ?? '' }}">
 				</div>
-
-				@endforeach
+				@endif
+				<h2 data-gsap-element="header" class="__txt m-title">{{ $g_proces['title'] }}</h2>
+				<div data-gsap-element="txt" class="">{!! $g_proces['txt'] !!}</div>
 			</div>
-			<div class="__line absolute bg-primary z-0 origin-left scale-x-0"></div>
-			@endif
 
+			@if (!empty($r_proces))
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 section-gap mt-14">
+				@foreach ($r_proces as $index => $item)
+				@php
+				$number = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
+				@endphp
+				<div data-gsap-element="card" class="__card bg-white p-8">
+					<div class="__img relative overflow-hidden">
+						<div class="text-[240px] absolute font-bold text-white leading-none tracking-tighter -left-12 -bottom-2">{{ $number }}</div>
+						<img class="m-img img-s object-cover w-full" src="{{ $item['r_image']['url'] }}" alt="{{ $item['r_image']['alt'] ?? '' }}" />
+					</div>
+					<h4>{{ $item['r_title'] }}</h4>
+					<p>{{ $item['r_txt'] }}</p>
+				</div>
+				@endforeach
+				</ul>
+				@endif
+
+			</div>
 		</div>
-	</div>
 
 </section>
