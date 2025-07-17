@@ -33,11 +33,11 @@ $total_slides = $cases->found_posts;
 							@if ($title)
 							<h2 data-gsap-element="header" class="mb-6">{{ $title }}</h2>
 							@endif
-							<h4 class="m-title">{{ get_the_title() }}</h4>
-							<div class="text-content my-4">
+							<h4 data-gsap-element="subheader" class="m-title">{{ get_the_title() }}</h4>
+							<div data-gsap-element="txt" class="text-content my-4">
 								{{ get_the_excerpt() }}
 							</div>
-							<a class="stroke-btn m-btn mt-4" href="{{ get_permalink() }}">Dowiedz się więcej</a>
+							<a data-gsap-element="btn" class="stroke-btn m-btn mt-4" href="{{ get_permalink() }}">Dowiedz się więcej</a>
 						</div>
 					</div>
 					@endwhile
@@ -45,7 +45,7 @@ $total_slides = $cases->found_posts;
 			</div>
 
 			@if ($total_slides > 1)
-			<div class="flex items-center gap-6 mt-8">
+			<div data-gsap-element="control" class="flex items-center gap-6 mt-8">
 				{{-- [FIX] Dodany element licznika --}}
 				<div class="slide-counter text-sm font-semibold text-gray-600 w-12 text-center"></div>
 

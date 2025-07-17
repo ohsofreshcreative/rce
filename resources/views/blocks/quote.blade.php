@@ -32,7 +32,7 @@ $customClass = $block->data['className'] ?? '';
 			</div>
 
 			@if (!empty($g_quote['image']))
-			<div data-gsap-element="img" class="__img">
+			<div data-gsap-element="img" class="__img hidden lg:block">
 				<img class="m-auto" src="{{ $g_quote['image']['url'] }}" alt="{{ $g_quote['image']['alt'] ?? '' }}">
 			</div>
 			@endif

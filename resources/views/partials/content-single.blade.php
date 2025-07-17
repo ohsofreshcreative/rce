@@ -7,7 +7,7 @@ $categories = get_the_category();
 		<div class="__content text-center w-full md:w-2/3 m-auto">
 
 			@if (!empty($categories))
-			<a href="{{ get_category_link($categories[0]->term_id) }}" class="__category px-3 py-2">
+			<a data-gsap-element="btn" href="{{ get_category_link($categories[0]->term_id) }}" class="__category px-3 py-2">
 				{{ $categories[0]->name }}
 			</a>
 			@endif
@@ -26,7 +26,7 @@ $categories = get_the_category();
 			</div>
 		</div>
 		@if (has_post_thumbnail())
-		<img class="b-corners -smt" src="{{ get_the_post_thumbnail_url(null, 'full') }}" alt="{{ get_the_title() }}">
+		<img data-gsap-element="img" class="b-corners -smt" src="{{ get_the_post_thumbnail_url(null, 'full') }}" alt="{{ get_the_title() }}">
 		@endif
 	</div>
 </section>
@@ -62,7 +62,7 @@ preg_match_all('/<h([1-4])[^>]*>(.*?)<\/h[1-4]>/', $content, $matches, PREG_SET_
 
 					<div class="__content c-main -smt grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
 
-					<div class="relative md:sticky top-0 md:top-30 h-max">
+					<div data-gsap-element="toc" class="relative md:sticky top-0 md:top-30 h-max">
 						<h5 class="m-title">Spis treści</h5>
 						@if(count($matches))
 						{!! $toc !!}
@@ -89,16 +89,16 @@ preg_match_all('/<h([1-4])[^>]*>(.*?)<\/h[1-4]>/', $content, $matches, PREG_SET_
 					@endphp
 
 					@if($related_query->have_posts())
-					<section class="related-posts bg-light -smt pt-20 pb-26">
+					<section data-gsap-anim="section" class="related-posts bg-light -smt pt-20 pb-26">
 						<div class="c-main">
 							<div class="flex justify-between">
-								<h3 class="text-2xl font-bold">Podobne wpisy</h3>
-								<a class="white-btn" href="/category/baza-wiedzy/">Wszystkie podobne</a>
+								<h3 data-gsap-element="header" class="text-2xl font-bold">Podobne wpisy</h3>
+								<a data-gsap-element="btn" class="white-btn" href="/category/baza-wiedzy/">Wszystkie podobne</a>
 							</div>
 							<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
 								@while($related_query->have_posts())
 								@php($related_query->the_post())
-								<article @php(post_class())>
+								<article data-gsap-element="card" @php(post_class())>
 									<header>
 										@if(has_post_thumbnail())
 										<a href="{{ get_permalink() }}">

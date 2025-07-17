@@ -7,7 +7,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class HeroOffer extends Block
 {
-	public $name = 'Sekcja Hero - Oferta';
+	public $name = 'Hero - Zdjęcie w tle';
 	public $description = 'hero-offer';
 	public $slug = 'hero-offer';
 	public $category = 'formatting';
@@ -31,12 +31,12 @@ class HeroOffer extends Block
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Hero',
+				'label' => 'Hero - Zdjęcie w tle',
 				'open' => false,
 				'multi_expand' => true,
 			])
 			->addTab('Treść', ['placement' => 'top']) 
-			->addGroup('g_herooffer', ['label' => 'Hero oferta'])
+			->addGroup('g_herooffer', ['label' => 'Hero - Zdjęcie w tle'])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'

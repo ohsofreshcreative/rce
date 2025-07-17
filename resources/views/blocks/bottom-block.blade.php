@@ -30,7 +30,7 @@ $backgroundImage = !empty($bottom['image']['url']) ? "url({$bottom['image']['url
 		</div> -->
 
 	</div>
-	<div class="contact-form-container bg-white p-10 b-corners-s">
+	<div data-gsap-element="form" class="contact-form-container bg-white p-10 b-corners-s">
 		{!! do_shortcode($bottom['shortcode']) !!}
 	</div>
 

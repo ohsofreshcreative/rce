@@ -10,7 +10,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 @endphp
 
 {{-- Używamy Twoich oryginalnych nazw pól: $title i $r_tabs --}}
-<section class="tabs -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" class="tabs -smt {{ $sectionClass }}">
   <div class="__wrapper c-main">
     
     @if ($title)
@@ -25,7 +25,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
    
         <div class="tab-navigation w-full flex flex-wrap justify-between gap-4 mb-10">
           @foreach ($r_tabs as $index => $item)
-            <button 
+            <button data-gsap-element="tab" 
               class="tab-button flex-1 bg-white text-center txt-xl px-6 py-10 transition-colors duration-300 {{ $loop->first ? 'is-active' : '' }}"
               data-tab="{{ $index }}">
              
@@ -38,7 +38,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
           @endforeach
         </div>
 
-        <div class="tab-content relative">
+        <div data-gsap-element="content" class="tab-content relative">
           @foreach ($r_tabs as $index => $item)
             <div 
               class="tab-panel absolute w-full transition-opacity duration-500 {{ $loop->first ? 'is-visible' : 'opacity-0 pointer-events-none' }}"

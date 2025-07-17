@@ -7,7 +7,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class HeroSecond extends Block
 {
-	public $name = 'Sekcja Hero - Alternatywne';
+	public $name = 'Sekcja Hero - Realizacje';
 	public $description = 'hero-second';
 	public $slug = 'hero-second';
 	public $category = 'formatting';
@@ -31,11 +31,11 @@ class HeroSecond extends Block
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Hero - Alternatywne',
+				'label' => 'Hero - Realizacje',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			->addTab('Treść', ['placement' => 'top']) 
+			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_herosecond', ['label' => 'Hero - Pojedyncza oferta'])
 			->addImage('image', [
 				'label' => 'Obraz',
@@ -49,6 +49,18 @@ class HeroSecond extends Block
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
 			])
+			->addText('client', [
+				'label' => 'Nasz klient',
+			])
+			->addText('target', [
+				'label' => 'Klient docelowy',
+			])
+			->addText('project', [
+				'label' => 'Projekt',
+			])
+			->addText('address', [
+				'label' => 'Adres',
+			])
 			->addLink('cta', [
 				'label' => 'Przycisk',
 				'return_format' => 'array',
@@ -56,7 +68,7 @@ class HeroSecond extends Block
 
 			->endGroup()
 
-			->addTab('Ustawienia bloku', ['placement' => 'top']) 
+			->addTab('Ustawienia bloku', ['placement' => 'top'])
 
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',

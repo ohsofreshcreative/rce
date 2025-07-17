@@ -3,6 +3,8 @@ $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
 @endphp
 
+<!--- cta --->
+
 <section data-gsap-anim="section" class="cta -smt {{ $sectionClass }}">
 
 	<div class="__wrapper c-main bg-primary grid grid-cols-1 md:grid-cols-2 section-gap items-center p-8">
@@ -13,10 +15,10 @@ $sectionClass .= $flip ? ' order-flip' : '';
 			@endif
 
 			<div class="__content">
-				<p class="text-h4 text-white mb-2">{{ $cta['title'] }}</p>
-				<p class="text-white">{{ $cta['txt'] }}</p>
+				<p data-gsap-element="header" class="text-h4 text-white mb-2">{{ $cta['title'] }}</p>
+				<p data-gsap-element="txt" class="text-white">{{ $cta['txt'] }}</p>
 				@if (!empty($cta['button']))
-				<a class="white-btn m-btn" href="{{ $cta['button']['url'] }}">{{ $cta['button']['title'] }}</a>
+				<a data-gsap-element="btn" class="white-btn m-btn" href="{{ $cta['button']['url'] }}">{{ $cta['button']['title'] }}</a>
 				@endif
 			</div>
 	</div>

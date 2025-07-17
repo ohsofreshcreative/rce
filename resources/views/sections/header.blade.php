@@ -9,13 +9,13 @@ use App\Walkers\MobileDropdownWalker;
 	<div class="items-center justify-between hidden h-full py-4 px-12 mx-auto md:flex">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
 			@if ($logo)
-			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12">
+			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-16">
 			@else
 			<span class="text-xl font-bold">{{ $siteName }}</span>
 			@endif
 		</a>
 		@if (has_nav_menu('primary_navigation'))
-		<nav class="ml-15 nav-primary w-full" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+		<nav class="mx-6 nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
 			{!! wp_nav_menu([
                 'theme_location' => 'primary_navigation',
                 'menu_class' => 'nav flex gap-x-5 lg:gap-x-8 text-sm font-medium items-center', // Usunięto 'nav-link' jeśli jest zbędne
@@ -25,6 +25,7 @@ use App\Walkers\MobileDropdownWalker;
 			]) !!}
 		</nav>
 		@endif
+		<a class="small-btn" href="/kontakt">Umów bezpłatną konsultację</a>
 	</div>
 
 	<!-- Mobile Header Bar -->

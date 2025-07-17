@@ -7,13 +7,15 @@ $sectionId = $block->data['id'] ?? null;
 $customClass = $block->data['className'] ?? '';
 @endphp
 
-<div class="block-category-posts -smt layout-{{ $layout }} {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}"  @if($sectionId) id="{{ $sectionId }}" @endif>
+<!--- category-posts --->
+
+<div data-gsap-anim="section" class="-smt layout-{{ $layout }} {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}"  @if($sectionId) id="{{ $sectionId }}" @endif>
 	<div class="c-main">
 		<div class="flex justify-between items-center mb-10">
-			<h2 class="block-title">{{ $posts_settings['title'] }}</h2>
+			<h2 data-gsap-element="header" class="block-title">{{ $posts_settings['title'] }}</h2>
 
 			@if($category_id)
-			<div class="view-all-container text-center">
+			<div data-gsap-element="btn" class="view-all-container text-center">
 				<a class="main-btn" href="{{ get_category_link($category_id) }}" class="btn btn-primary view-all-posts">
 					Wszystkie artykuły
 				</a>
@@ -24,7 +26,7 @@ $customClass = $block->data['className'] ?? '';
 		@if(!empty($posts))
 		<div class="posts-container grid grid-cols-1 md:grid-cols-3 gap-8">
 			@foreach($posts as $post)
-			<div class="post-item">
+			<div data-gsap-element="card" class="post-item">
 				@if($show_image && has_post_thumbnail($post->ID))
 				<div class="post-image img-xs m-img">
 					<a href="{{ get_permalink($post->ID) }}">
@@ -41,7 +43,7 @@ $customClass = $block->data['className'] ?? '';
 					</h5>
 
 					@if($show_excerpt)
-					<div class="post-excerpt">
+					<div class="post-excerpt mt-4">
 						{{ get_the_excerpt($post->ID) }}
 					</div>
 					@endif

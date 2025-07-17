@@ -1,5 +1,5 @@
-<article @php(post_class())>
-	<header>
+<article data-gsap-anim="section" @php(post_class())>
+	<header data-gsap-element="header">
 		@if(has_post_thumbnail())
 		<a class="" href="{{ get_permalink() }}">
 			{!! get_the_post_thumbnail(null, 'large', ['class' => 'featured-image img-xs']) !!}
@@ -15,7 +15,7 @@
 		<!--  @include('partials.entry-meta') -->
 	</header>
 
-	<a class="underline-btn m-btn" href="{{ get_permalink() }}">
+	<a data-gsap-element="btn" class="underline-btn m-btn" href="{{ get_permalink() }}">
 		Przeczytaj
 	</a>
 
