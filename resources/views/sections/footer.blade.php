@@ -13,10 +13,10 @@
 			<div class="text-white">Masz pytania?<br />
 				+48 886 857 496
 			</div>
-			<img src="http://rce.local/wp-content/uploads/2025/07/in.svg">
+			<img src="/wp-content/uploads/2025/07/in.svg">
 		</div>
 	</div>
-	<img class="__bg--img absolute top-0 z-10" src="http://rce.local/wp-content/uploads/2025/07/footer-shape.svg" />
+	<img class="__bg--img absolute top-0 z-10" src="/wp-content/uploads/2025/07/footer-shape.svg" />
 	</div>
 
 	<div data-gsap-element="copy" class="c-main flex flex-col md:flex-row justify-between gap-6 py-10 footer-bottom">

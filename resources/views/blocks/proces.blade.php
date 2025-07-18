@@ -6,7 +6,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 @endphp
 
 <section data-gsap-anim="section" class="g_proces -smt {{ $sectionClass }}">
-	<div class="__wrapper c-main-wide">
+	<div class="__wrapper c-main">
 		<div class="relative">
 			<div class="w-full md:w-1/2">
 				@if (!empty($g_proces['image']))

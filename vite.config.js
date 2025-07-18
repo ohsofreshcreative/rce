@@ -16,6 +16,12 @@ export default defineConfig({
       host: 'raab.local', // 🔁 <-- tu też!
       port: 5173,
     },
+	proxy: {
+    '/wp-content/uploads': {
+      target: 'http://raab.local', // WordPress backend bez portu!
+      changeOrigin: true,
+    },
+  },
   },
 
   base: '/build/', // 🔁 zgodne z tym, co generuje @vite()

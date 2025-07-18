@@ -3,7 +3,6 @@ $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
-$sectionClass .= $side ? ' !mx-6' : '';
 $sectionClass .= $cut ? ' b-corners' : '';
 $sectionClass .= $gap ? ' wider-gap' : '';
 $sectionClass .= $lightbg ? ' section-light' : '';
@@ -13,7 +12,9 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 $sectionClass .= $gradient ? ' section-gradient' : '';
 @endphp
 
-<section data-gsap-anim="section" class="points -smt {{ $sectionClass }}">
+<!--- points --->
+
+<section data-gsap-anim="section" class="points -smt mx-0 md:mx-6 {{ $sectionClass }}">
 	<div class="__wrapper c-main">
 
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -44,7 +45,7 @@ $sectionClass .= $gradient ? ' section-gradient' : '';
 			@foreach ($r_points as $item)
 			<div class="__point flex gap-4">
 				<img class="__icon" src="{{ $icon['url'] }}" alt="{{ $icon['alt'] ?? '' }}">
-				<p class="text-2xl">{{ $item['card_txt'] }}</p>
+				<p class="text-base md:text-xl">{{ $item['card_txt'] }}</p>
 			</div>
 			@endforeach
 		</div>

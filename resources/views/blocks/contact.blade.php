@@ -3,7 +3,7 @@ $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
-$sectionClass .= $side ? ' !mx-6' : '';
+
 $sectionClass .= $cut ? ' b-corners' : '';
 $sectionClass .= $gap ? ' wider-gap' : '';
 $sectionClass .= $lightbg ? ' section-light' : '';
@@ -13,10 +13,12 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 $sectionClass .= $gradient ? ' section-gradient' : '';
 @endphp
 
-<section data-gsap-anim="section" class="contact -spt {{ $sectionClass }}">
+<!--- contact --->
 
-	<div class="__wrapper c-main-wide relative z-2">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
+<section data-gsap-anim="section" class="contact -spt mx-0 md:mx-6 {{ $sectionClass }}">
+
+	<div class="__wrapper c-main-wide !px-6 relative z-2">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 			<div class="__content w-full lg:w-11/12 flex flex-col justify-between">
 				<div>
 					@if (!empty($g_contact_1['logo']))
@@ -27,10 +29,10 @@ $sectionClass .= $gradient ? ' section-gradient' : '';
 					@endif
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
 						<div data-gsap-element="data" class="__data">
-							<a class="__phone flex items-center w-max mt-4 text-white" href="tel:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['phone'] }}</a>
+							<a class="__phone flex items-center w-max text-white" href="tel:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['phone'] }}</a>
 							<a class="__mail flex items-center w-max text-white" href="mailto:{{ $g_contact_1['phone'] }}">{{ $g_contact_1['mail'] }}</a>
 						</div>
-						<div data-gsap-element="address" class="__address mt-4 text-white">{!! $g_contact_1['adres'] !!}</div>
+						<div data-gsap-element="address" class="__address text-white">{!! $g_contact_1['adres'] !!}</div>
 					</div>
 				</div>
 

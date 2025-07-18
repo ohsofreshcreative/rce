@@ -721,17 +721,17 @@ h6,
 .stroke-btn {
   font-family: var(--btns-font);
   font-size: var(--btns-fontsize);
-  background: transparent;
+  background: #FFF;
   color: var(--primary);
   padding: var(--btns-padding);
   display: inline-block;
   transition: all 0.2s ease-out;
   font-weight: 600;
-  border: 1px solid var(--primary);
   border-radius: var(--btns-radius);
   text-decoration: none;
   white-space: nowrap;
   width: max-content;
+  box-shadow: inset 1px 1px 1px rgba(16,46,161, 0.4);
 
   clip-path: polygon(
     0% 0%,
@@ -747,14 +747,12 @@ h6,
   color: #fff;
   transition: all 0.2s ease-out;
   background-color: var(--p-hover);
-  border: 1px solid var(--p-hover);
 }
 
 .stroke-btn .active {
   color: #fff;
   transition: all 0.2s ease-out;
   background-color: var(--primary);
-  border: 1px solid var(--primary);
 }
 
 .small-btn {
@@ -795,7 +793,7 @@ h6,
 }
 
 .underline-btn::after {
-  content: url('http://raab.local/wp-content/uploads/2025/06/btn-arrow.svg');
+  content: url("var(--uploads-base) '/2025/06/btn-arrow.svg'");
   height: 10px;
   width: 10px;
   margin-left: 8px;
@@ -1297,26 +1295,26 @@ input[type='checkbox'] {
 /*--- !SINGLE ---*/
 
 .single-post {
-    .__arrow {
-      background-color: rgba(16,46,161, 1);
-      padding: 24px;
-      fill: rgba(16,46,161, 0.2);
-      stroke-width: 1px;
-      stroke: rgba(16,46,161, 0.25);
-      box-shadow: 0px 2px 2px 0px rgba(255, 255, 255, 0.25) inset;
-      filter: drop-shadow(0px 1px 3px rgba(255, 255, 255, 0.15));
-      backdrop-filter: blur(2px);
-      transition: 0.3s all;
-    }
-    .__arrow:hover {
-      background-color: rgb(12, 35, 129);
-      fill: rgba(255, 255, 255, 0.4);
-      stroke-width: 1px;
-      stroke: rgba(255, 255, 255, 0.4);
-      box-shadow: 0px 2px 2px 0px rgba(255, 255, 255, 0.4) inset;
-      filter: drop-shadow(0px 1px 3px rgba(255, 255, 255, 0.15));
-      backdrop-filter: blur(2px);
-      transition: 0.3s all;
+  .__arrow {
+    background-color: rgba(16, 46, 161, 1);
+    padding: 24px;
+    fill: rgba(16, 46, 161, 0.2);
+    stroke-width: 1px;
+    stroke: rgba(16, 46, 161, 0.25);
+    box-shadow: 0px 2px 2px 0px rgba(255, 255, 255, 0.25) inset;
+    filter: drop-shadow(0px 1px 3px rgba(255, 255, 255, 0.15));
+    backdrop-filter: blur(2px);
+    transition: 0.3s all;
+  }
+  .__arrow:hover {
+    background-color: rgb(12, 35, 129);
+    fill: rgba(255, 255, 255, 0.4);
+    stroke-width: 1px;
+    stroke: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 2px 2px 0px rgba(255, 255, 255, 0.4) inset;
+    filter: drop-shadow(0px 1px 3px rgba(255, 255, 255, 0.15));
+    backdrop-filter: blur(2px);
+    transition: 0.3s all;
   }
 
   .__content {
@@ -1513,6 +1511,7 @@ input[type='checkbox'] {
 @media only screen and (max-width: 768px) {
   :root {
     --img-xl: 424px;
+    --smt: 72px;
   }
   .inline-buttons {
     display: grid;
@@ -1524,6 +1523,11 @@ input[type='checkbox'] {
   .inline-buttons a {
     width: 100% !important;
     text-align: center !important;
+  }
+  .c-main-wide,
+  .wide .c-main {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 }
 
@@ -1542,7 +1546,13 @@ input[type='checkbox'] {
   h2,
   .text-h2 {
     font-size: 36px !important;
-    line-height: 3.2rem;
+    line-height: 2.6rem;
+  }
+
+  .hero h2,
+  .hero .text-h2 {
+    font-size: 30px !important;
+    line-height: 2.4rem;
   }
 
   h3,

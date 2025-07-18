@@ -5,8 +5,8 @@ $sectionClass .= $flip ? ' order-flip' : '';
 
 <!--- hero-second -->
 
-<section data-gsap-anim="section" class="hero-second relative bg-gradient b-corners mx-6 {{ $sectionClass }}">
-	<div class="__wrapper c-main relative z-2 grid grid-cols-1 md:grid-cols-2 items-center gap-8 {{ !empty($g_herosecond['image']) ? 'py-26' : '' }}">
+<section data-gsap-anim="section" class="hero-second relative bg-gradient b-corners mx-0 md:mx-6 {{ $sectionClass }}">
+	<div class="__wrapper c-main relative z-2 grid grid-cols-1 md:grid-cols-2 items-center gap-8 {{ !empty($g_herosecond['image']) ? 'py-16 md:py-26' : '' }}">
 		<div class="text-white">
 			<h2 data-gsap-element="header" class="m-title text-white">{{ $g_herosecond['title'] }}</h2>
 

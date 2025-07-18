@@ -21,3 +21,13 @@
 	transition: 0.3s all;
   }
 }
+
+/*---- MD --*/
+@media only screen and (max-width: 768px) {
+  .hero-offer {
+	h1 {
+		font-size:30px !important;
+		line-height: 2.4rem;
+	}
+  }
+}

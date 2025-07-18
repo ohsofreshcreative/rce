@@ -11,7 +11,7 @@ $customClass = $block->data['className'] ?? '';
 
 <div data-gsap-anim="section" class="-smt layout-{{ $layout }} {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}"  @if($sectionId) id="{{ $sectionId }}" @endif>
 	<div class="c-main">
-		<div class="flex justify-between items-center mb-10">
+		<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
 			<h2 data-gsap-element="header" class="block-title">{{ $posts_settings['title'] }}</h2>
 
 			@if($category_id)

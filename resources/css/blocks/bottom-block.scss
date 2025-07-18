@@ -22,3 +22,13 @@
     top: 4px;
   }
 }
+
+/*---- LG --*/
+@media only screen and (max-width: 1024px) {
+  .cta-bottom {
+    background-size: auto 30% !important;
+    background-position: top !important;
+    background-repeat: no-repeat;
+	
+  }
+}

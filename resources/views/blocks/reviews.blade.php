@@ -1,8 +1,11 @@
 @php
 $sectionClass = '';
 $sectionId = $block->data['id'] ?? null;
+$sectionClass .= $nomt ? ' !mt-0' : '';
 $customClass = $block->data['className'] ?? '';
 @endphp
+
+<!--- reviews --->
 
 <section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="reviews bg-gradient -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
 
@@ -21,13 +24,13 @@ $customClass = $block->data['className'] ?? '';
 			<div class="swiper-wrapper">
 				@foreach($r_reviews as $card)
 				<div class="swiper-slide text-white">
-					<div class="__card bg-primary b-border b-corners-s px-16 py-16">
+					<div class="__card bg-primary b-border b-corners-s px-6 py-6 md:px-16 md:py-16">
 
 						@if(!empty($card['txt']))
 						<div class="__txt">{{ $card['txt'] }}</div>
 						@endif
 
-						<div class="flex gap-6 items-center b-border-t pt-10 mt-10">
+						<div class="flex flex-col md:flex-row gap-6 items-start md:items-center b-border-t pt-10 mt-10">
 							<div class="__img flex bg-white rounded-full">
 								<img src="{{ $card['image']['url'] }}" alt="{{ $card['image']['alt'] ?? '' }}" />
 							</div>

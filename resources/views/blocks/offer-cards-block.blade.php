@@ -47,7 +47,7 @@ $customClass = $block->data['className'] ?? '';
 				</div>
 				@endforeach
 
-				<div data-gsap-element="card" class="__card grid items-center bg-white b-border-light p-10" style="background-image:  linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.95) 100%), url('http://rce.local/wp-content/uploads/2025/07/wspolpraca-scaled.jpg'); background-size: cover; background-position: center;">
+				<div data-gsap-element="card" class="__card grid items-center bg-white b-border-light p-10" style="background-image:  linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.95) 100%), url('/wp-content/uploads/2025/07/wspolpraca-scaled.jpg'); background-size: cover; background-position: center;">
 					<div class="__content">
 						<h5 class="block m-title text-white">Nadal szukasz?</h5>
 						<div class="__txt text-white">Widocznie masz niestandardowy problem do rozwiązania. Lepiej nie można było trafić bo uwielbiamy wyzwania. Idziemy dalej tam, gdzie wszyscy odpuszczają. Skontaktuj się z nami abyśmy mogli poznać twoje potrzeby i zaproponowali rozwiązanie dla Ciebie.</div>

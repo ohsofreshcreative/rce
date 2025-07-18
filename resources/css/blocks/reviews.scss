@@ -64,3 +64,13 @@
     }
   }
 }
+
+/*---- MD --*/
+@media only screen and (max-width: 768px) {
+  .reviews {
+    .reviews-swiper.is-inset {
+      padding-left: 0%;
+      padding-right: 0%;
+    }
+  }
+}

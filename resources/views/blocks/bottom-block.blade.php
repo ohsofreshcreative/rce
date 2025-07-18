@@ -17,7 +17,7 @@ $backgroundImage = !empty($bottom['image']['url']) ? "url({$bottom['image']['url
 <!-- bottom-block -->
 
 <section data-gsap-anim="section" class="cta-bottom relative overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-10 -smt c-main bg-dark b-corners-s py-6 {{ $sectionClass }}" style="background-image: {{ $backgroundImage }}; background-size: cover; background-position: right;">
-	<div class="mx-12 !mb-20 mt-auto">
+	<div class="mx-0 my-20 lg:mx-12 lg:!mb-20 lg:mt-auto">
 
 		<div data-gsap-element="img" class="__img order1">
 			<img class="" src="{{ $bottom['logo']['url'] }}" alt="{{ $bottom['logo']['alt'] ?? '' }}">
