@@ -130,13 +130,6 @@ add_action('after_setup_theme', function () {
 	add_theme_support('customize-selective-refresh-widgets');
 }, 20);
 
-add_action('wp_head', function () {
-    $upload_dir = wp_upload_dir();
-    $upload_baseurl = $upload_dir['baseurl'];
-    echo "<style>:root { --uploads-base: '{$upload_baseurl}'; }</style>";
-});
-
-
 /**
  * Register the theme sidebars.
  *
