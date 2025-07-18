@@ -721,7 +721,7 @@ h6,
 .stroke-btn {
   font-family: var(--btns-font);
   font-size: var(--btns-fontsize);
-  background: #FFF;
+  background: var(--border-light);
   color: var(--primary);
   padding: var(--btns-padding);
   display: inline-block;
@@ -731,7 +731,6 @@ h6,
   text-decoration: none;
   white-space: nowrap;
   width: max-content;
-  box-shadow: inset 1px 1px 1px rgba(16,46,161, 0.4);
 
   clip-path: polygon(
     0% 0%,

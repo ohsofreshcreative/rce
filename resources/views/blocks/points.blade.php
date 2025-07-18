@@ -21,15 +21,15 @@ $sectionClass .= $gradient ? ' section-gradient' : '';
 			<div class="flex flex-col justify-between order-2 lg:order-1">
 				<div>
 					@if (!empty($g_points['title']))
-					<h3 class="m-title">{{ strip_tags($g_points['title']) }}</h3>
+					<h3 data-gsap-element="header" class="m-title">{{ strip_tags($g_points['title']) }}</h3>
 					@endif
 					@if (!empty($g_points['text']))
-					<p class="__txt text-xl pb-2">{{ strip_tags($g_points['text']) }}</p>
+					<p data-gsap-element="txt" class="__txt text-xl pb-2">{{ strip_tags($g_points['text']) }}</p>
 					@endif
 				</div>
 
 				@if (!empty($g_points['subtitle']))
-				<h4 class="font-medium">{{ strip_tags($g_points['subtitle']) }}</h4>
+				<h4 data-gsap-element="subheader" class="font-medium">{{ strip_tags($g_points['subtitle']) }}</h4>
 				@endif
 			</div>
 
@@ -43,7 +43,7 @@ $sectionClass .= $gradient ? ' section-gradient' : '';
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
 
 			@foreach ($r_points as $item)
-			<div class="__point flex gap-4">
+			<div data-gsap-element="point" class="__point flex gap-4">
 				<img class="__icon" src="{{ $icon['url'] }}" alt="{{ $icon['alt'] ?? '' }}">
 				<p class="text-base md:text-xl">{{ $item['card_txt'] }}</p>
 			</div>

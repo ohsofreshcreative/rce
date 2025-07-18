@@ -8,7 +8,9 @@ $sectionClass .= $whitebg ? ' section-white' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
 @endphp
 
-<section data-gsap-anim="section" class="cards text-tiles -smt {{ $sectionClass }}">
+<!--- text-tiles -->
+
+<section data-gsap-anim="section" class="text-tiles -smt {{ $sectionClass }}">
 	<div class="__wrapper c-main-wide">
 		<div class="c-main">
 
@@ -16,10 +18,10 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 				<div class="flex flex-col justify-between w-full md:w-5/6">
 					<div>
 						@if (!empty($g_texttiles['title']))
-						<h1 class="m-title">{{ strip_tags($g_texttiles['title']) }}</h1>
+						<h1 data-gsap-element="header" class="m-title">{{ strip_tags($g_texttiles['title']) }}</h1>
 						@endif
 						@if (!empty($g_texttiles['text']))
-						<p class="__txt text-xl pb-2">{{ strip_tags($g_texttiles['text']) }}</p>
+						<p data-gsap-element="txt" class="__txt text-xl pb-2">{{ strip_tags($g_texttiles['text']) }}</p>
 						@endif
 
 						@if (!empty($g_texttiles['image']))
@@ -33,7 +35,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 				<div class="grid gap-8 content-between">
 
 					@foreach ($r_texttiles as $item)
-					<div class="__card flex flex-col md:flex-row items-start md:items-center gap-6">
+					<div data-gsap-element="card" class="__card flex flex-col md:flex-row items-start md:items-center gap-6">
 						<div class="bg-p-lighter b-corners-sm p-8">
 							<img class="" src="{{ $item['card_image']['url'] }}" alt="{{ $item['card_image']['alt'] ?? '' }}" />
 						</div>

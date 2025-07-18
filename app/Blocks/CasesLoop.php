@@ -9,7 +9,7 @@ class CasesLoop extends Block
 {
 	public $name = 'Lista realizacji';
 	public $description = 'cases-loop';
-	public $slug = 'cases-loop'; 
+	public $slug = 'cases-loop';
 	public $category = 'formatting';
 	public $icon = 'format-image';
 	public $keywords = ['realizacje', 'lista', 'cases', 'kafelki'];
@@ -44,10 +44,16 @@ class CasesLoop extends Block
 			])
 			->addTab('Elementy', ['placement' => 'top'])
 			->addMessage('Edycja', 'Realizacje dodajemy klikajac w menu panelu administratora pole "Realizacje".')
-			
+
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('id', [
+				'label' => 'ID',
+			])
+			->addText('class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -96,7 +102,7 @@ class CasesLoop extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			]);
-			
+
 
 		return $casesLoop->build();
 	}
@@ -110,6 +116,8 @@ class CasesLoop extends Block
 	{
 		return [
 			'g_area' => get_field('g_area', 'option'),
+			'id' => get_field('id'),
+			'class' => get_field('class'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),

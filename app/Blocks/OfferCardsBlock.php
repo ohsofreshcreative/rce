@@ -136,7 +136,12 @@ class OfferCardsBlock extends Block
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
-			
+			->addText('id', [
+				'label' => 'ID',
+			])
+			->addText('class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('nomt', [
 				'label' => 'Usunięcie marginesu górnego',
 				'ui' => 1,
@@ -186,6 +191,8 @@ class OfferCardsBlock extends Block
 			'offer_cards' => get_field('offer-cards', 'option'),
 			'title' => get_field('title'),
 			'content' => get_field('content'),
+			'id' => get_field('id'),
+			'class' => get_field('class'),
 			'nomt' => get_field('nomt'),
 			'lightbg' => get_field('lightbg'),
 			'graybg' => get_field('graybg'),

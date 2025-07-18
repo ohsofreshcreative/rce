@@ -6,14 +6,11 @@ $sectionClass .= $lightbg ? ' section-light' : '';
 $sectionClass .= $graybg ? ' section-gray' : '';
 $sectionClass .= $whitebg ? ' section-white' : '';
 $sectionClass .= $brandbg ? ' section-brand' : '';
-
-$sectionId = $block->data['id'] ?? null;
-$customClass = $block->data['className'] ?? '';
 @endphp
 
 <!-- offer-cards-block -->
 
-<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="offer-cards -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
+<section data-gsap-anim="section" @if($id) id="{{ $id }}" @endif class="offer-cards -smt {{ $block->classes }} {{ $sectionClass }} {{ $class }}">
 	<div class="{{ $block->classes }}">
 
 		<div class="__wrapper c-main">

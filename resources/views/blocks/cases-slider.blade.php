@@ -68,7 +68,7 @@ $total_slides = $cases->found_posts;
 			@endif
 		</div>
 
-		<div class="cases-image-col order-1 lg:order-2">
+		<div data-gsap-element="img" class="cases-image-col order-1 lg:order-2">
 			<div class="swiper swiper-images b-corners-s">
 				<div class="swiper-wrapper">
 					@php $cases->rewind_posts(); @endphp

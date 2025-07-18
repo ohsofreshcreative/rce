@@ -9,9 +9,6 @@ $sectionClass .= $graybg ? ' section-gray' : '';
 $sectionClass .= $whitebg ? ' section-white' : '';
 $sectionClass .= $brandbg ? ' section-brand' : '';
 
-$sectionId = $block->data['id'] ?? null;
-$customClass = $block->data['className'] ?? '';
-
 $args = [
 'post_type' => 'cases',
 'posts_per_page' => -1, // Wyświetl wszystkie posty
@@ -20,7 +17,7 @@ $args = [
 $cases = new WP_Query($args);
 @endphp
 
-<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="cases-loop c-main relative -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
+<section data-gsap-anim="section" @if($id) id="{{ $id }}" @endif class="cases-loop c-main relative -smt {{ $block->classes }} {{ $sectionClass }} {{ $class }}">
 
 	@if ($cases->have_posts())
 	<div class="__cards grid grid-cols-1 lg:grid-cols-2 gap-10">
