@@ -80,6 +80,12 @@ class Proces extends Block
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('id', [
+				'label' => 'ID',
+			])
+			->addText('class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -109,6 +115,8 @@ class Proces extends Block
 		return [
 			'g_proces' => get_field('g_proces'),
 			'r_proces' => get_field('r_proces'),
+			'id' => get_field('id'),
+			'class' => get_field('class'),
 			'flip' => get_field('flip'),
 			'lightbg' => get_field('lightbg'),
 			'nomt' => get_field('nomt'),

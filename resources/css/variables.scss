@@ -386,7 +386,7 @@ h4,
 h5,
 h6 {
   font-family: var(--header);
-  color: var(--body);
+  color: var(--primary);
   font-weight: 500;
 }
 
@@ -1271,6 +1271,10 @@ input[type='checkbox'] {
 
 /*--- !BLOG ---*/
 .blog__top {
+	h1 {
+		font-size:42px !important;
+		line-height: 3.5rem;
+	}
   a.__category {
     border: 1px solid var(--border-light);
     color: var(--border-light);
@@ -1324,20 +1328,42 @@ input[type='checkbox'] {
     }
   }
   .__entry {
+	p, strong {
+		margin-bottom: 16px;
+	}
+	strong {
+		margin-bottom:0 !important;
+	}
+	a {
+		color:var(--p-300);
+		text-decoration: underline !important;
+	}
+	ul {
+		margin-bottom:16px;
+	}
     h2 {
-      font-size: 36px !important;
+      font-size: 30px !important;
       margin-top: 24px;
       margin-bottom: 8px;
+	  line-height: 2.2rem;
     }
     h2:first-child {
-      font-size: 36px !important;
+      font-size: 30px !important;
       margin-top: 0;
       margin-bottom: 0;
     }
     h3 {
-      font-size: 30px !important;
+      font-size: 24px !important;
       margin-top: 24px;
       margin-bottom: 8px;
+	  line-height: 2.2rem;
+    }
+    h5 {
+      font-size: 20px !important;
+	  color:var(--body) !important;
+      margin-top: 8px !important;
+      margin-bottom: 4px !important;
+	  line-height: 2rem;
     }
     ul {
       list-style-type: disc;

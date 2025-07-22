@@ -5,20 +5,20 @@ import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin'
 
 export default defineConfig({
   server: {
-    host: 'raab.local', // 🔁 <-- zmiana z 'localhost'
+    host: 'rce.local', // 🔁 <-- zmiana z 'localhost'
     port: 5173,
     strictPort: true,
     cors: true,
-    origin: 'http://raab.local:5173',
+    origin: 'http://rce.local:5173',
 
     hmr: {
       protocol: 'ws',
-      host: 'raab.local', // 🔁 <-- tu też!
+      host: 'rce.local', // 🔁 <-- tu też!
       port: 5173,
     },
 	proxy: {
     '/wp-content/uploads': {
-      target: 'http://raab.local', // WordPress backend bez portu!
+      target: 'http://rce.local', // WordPress backend bez portu!
       changeOrigin: true,
     },
   },

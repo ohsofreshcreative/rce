@@ -60,7 +60,7 @@ preg_match_all('/<h([1-4])[^>]*>(.*?)<\/h[1-4]>/', $content, $matches, PREG_SET_
 					$toc .='</ul></nav>' ;
 					@endphp
 
-					<div class="__content c-main -smt grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
+					<div id="more" class="__content c-main -smt grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
 
 					<div data-gsap-element="toc" class="relative md:sticky top-0 md:top-30 h-max">
 						<h5 class="m-title">Spis treści</h5>

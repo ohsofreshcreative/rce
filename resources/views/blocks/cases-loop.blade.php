@@ -17,6 +17,8 @@ $args = [
 $cases = new WP_Query($args);
 @endphp
 
+<!--- cases-loop --->
+
 <section data-gsap-anim="section" @if($id) id="{{ $id }}" @endif class="cases-loop c-main relative -smt {{ $block->classes }} {{ $sectionClass }} {{ $class }}">
 
 	@if ($cases->have_posts())

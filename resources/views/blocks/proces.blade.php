@@ -5,7 +5,9 @@ $sectionClass .= $lightbg ? ' section-light' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
 @endphp
 
-<section data-gsap-anim="section" class="g_proces -smt {{ $sectionClass }}">
+<!--- proces --->
+
+<section data-gsap-anim="section" @if($id) id="{{ $id }}" @endif class="g_proces -smt {{ $sectionClass }} {{ $class }}">
 	<div class="__wrapper c-main">
 		<div class="relative">
 			<div class="w-full md:w-1/2">

@@ -64,7 +64,7 @@ $pinned_post_query = new WP_Query([
 
 
 <div data-gsap-anim="section" class="c-main flex flex-wrap gap-4 -smt">
-	<a data-gsap-element="btn" class="stroke-btn" href="/category/baza-wiedzy/">Wszystkie wpisy</a>
+	<!-- <a data-gsap-element="btn" class="stroke-btn" href="/category/baza-wiedzy/">Wszystkie wpisy</a> -->
 	@foreach($categories as $category)
 	@if($category->name !== 'Wszystkie wpisy')
 	<a data-gsap-element="btn" class="stroke-btn {{ $term && $term->term_id === $category->term_id ? 'active' : '' }}" href="{{ get_category_link($category->term_id) }}">{{ $category->name }}</a>
