@@ -18,7 +18,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 			@endif
 		</div>
 
-		<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-14">
+		<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-14">
 
 			@foreach ($r_logos as $item)
 			<div data-gsap-element="card" class="__card ">

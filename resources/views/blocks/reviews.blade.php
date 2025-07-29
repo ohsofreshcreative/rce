@@ -27,12 +27,12 @@ $customClass = $block->data['className'] ?? '';
 					<div class="__card bg-primary b-border b-corners-s px-6 py-6 md:px-16 md:py-16">
 
 						@if(!empty($card['txt']))
-						<div class="__txt">{{ $card['txt'] }}</div>
+						<div class="__txt">{!! $card['txt'] !!}</div>
 						@endif
 
 						<div class="flex flex-col md:flex-row gap-6 items-start md:items-center b-border-t pt-10 mt-10">
 							<div class="__img flex bg-white rounded-full">
-								<img src="{{ $card['image']['url'] }}" alt="{{ $card['image']['alt'] ?? '' }}" />
+								<img class="object-contain" src="{{ $card['image']['url'] }}" alt="{{ $card['image']['alt'] ?? '' }}" />
 							</div>
 							<div>
 								<b class="block">{{ $card['name'] }}</b>

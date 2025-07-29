@@ -2,7 +2,7 @@
 $categories = get_the_category();
 @endphp
 
-<section data-gsap-anim="section" class="blog__top {{ $sectionClass }}">
+<section data-gsap-anim="section" class="blog__top">
 	<div class="__wrapper c-main pt-40">
 		<div class="__content text-center w-full md:w-2/3 m-auto">
 
@@ -26,7 +26,7 @@ $categories = get_the_category();
 			</div>
 		</div>
 		@if (has_post_thumbnail())
-		<img data-gsap-element="img" class="b-corners -smt" src="{{ get_the_post_thumbnail_url(null, 'full') }}" alt="{{ get_the_title() }}">
+		<img data-gsap-element="img" class="__thumbnail b-corners -smt" src="{{ get_the_post_thumbnail_url(null, 'full') }}" alt="{{ get_the_title() }}">
 		@endif
 	</div>
 </section>

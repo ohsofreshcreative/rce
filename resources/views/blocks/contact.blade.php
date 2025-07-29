@@ -38,7 +38,7 @@ $sectionClass .= $gradient ? ' section-gradient' : '';
 
 				@if (!empty($g_contact_1['image']))
 				<div data-gsap-element="img" class="__img order1 mt-10">
-					<img class="object-cover w-full __img img-l" src="{{ $g_contact_1['image']['url'] }}" alt="{{ $g_contact_1['image']['alt'] ?? '' }}">
+					<img class="object-cover w-full __img img-m" src="{{ $g_contact_1['image']['url'] }}" alt="{{ $g_contact_1['image']['alt'] ?? '' }}">
 				</div>
 				@endif
 			</div>
