@@ -3,6 +3,16 @@ $sectionClass = '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
 @endphp
 
+@php
+$count = count($r_logos);
+$gridClass = 'grid-cols-' . $count;
+
+// Upewniamy się, że liczba kolumn nie przekroczy dostępnych w Tailwind
+if ($count > 6) {
+$gridClass = 'grid-cols-6';
+}
+@endphp
+
 <!--- logos --->
 
 <section data-gsap-anim="section" class="cards -smt bg-white py-14 {{ $sectionClass }}">
@@ -18,10 +28,9 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 			@endif
 		</div>
 
-		<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-14">
-
+		<div class="grid {{ $gridClass }} sm:grid-cols-{{ min($count, 3) }} lg:grid-cols-{{ min($count, 6) }} gap-2 mt-14">
 			@foreach ($r_logos as $item)
-			<div data-gsap-element="card" class="__card ">
+			<div data-gsap-element="card" class="__card">
 				<a href="{{ $item['link'] }}" target="_blank">
 					<img class="m-img" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
 				</a>
