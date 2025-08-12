@@ -75,6 +75,13 @@ class Tabs extends Block
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+
+			->addText('id', [
+				'label' => 'ID',
+			])
+			->addText('class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -126,6 +133,8 @@ class Tabs extends Block
 		return [
 			'title' => get_field('title'),
 			'r_tabs' => get_field('r_tabs'),
+			'id' => get_field('id'),
+			'class' => get_field('class'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'lightbg' => get_field('lightbg'),

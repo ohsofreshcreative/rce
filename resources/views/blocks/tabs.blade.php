@@ -10,7 +10,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 
 <!--- tabs --->
 
-<section data-gsap-anim="section" class="tabs -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" @if($id) id="{{ $id }}" @endif class="tabs -smt {{ $sectionClass }} {{ $class }}">
   <div class="__wrapper c-main">
     
     @if ($title)
