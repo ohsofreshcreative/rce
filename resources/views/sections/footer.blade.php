@@ -11,7 +11,8 @@
 
 		<div data-gsap-element="bottom" class="flex justify-between b-border-t pt-15 mb-20">
 			<div class="text-white">Masz pytania?<br />
-				+48 886 857 496
+				
+<a href="tel:+48886857496"><div class="flex gap-4 text-white mt-2"><img src="/wp-content/uploads/2025/07/phone.svg"/>+48 886 857 496</div></a>
 			</div>
 			<img src="/wp-content/uploads/2025/07/in.svg">
 		</div>
