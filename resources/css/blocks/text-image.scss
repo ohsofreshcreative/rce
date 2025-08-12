@@ -26,7 +26,7 @@
     margin-top: 8px;
     li {
       position: relative;
-      padding-left: 1em;
+      padding-left: 1.6em;
       border-bottom: 1px solid var(--border-light);
       width: fit-content;
       margin-bottom: 8px;
@@ -40,11 +40,11 @@
     li:before {
       content: '';
       position: absolute;
-      left: 0;
+      left: 4px;
       top: 6px;
-      width: 7px;
+      width: 12px;
       height: 12px;
-      background-image: url('/wp-content/uploads/2025/06/check.svg');
+      background-image: url('/wp-content/uploads/2025/08/check.svg');
       background-size: cover;
     }
   }
