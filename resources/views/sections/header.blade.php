@@ -28,7 +28,7 @@ use App\Walkers\MobileDropdownWalker;
 		<div class="flex items-center gap-x-4">
 			<a class="small-btn" href="/kontakt">Umów bezpłatną konsultację</a>
 			<a class="__lang"href="http://en.roszakconsulting.com/">
-				<img src="http://rce.local/wp-content/uploads/2025/10/uk.svg" />
+				<img src="/wp-content/uploads/2025/10/uk.svg" />
 			</a>
 		</div>
 	</div>
