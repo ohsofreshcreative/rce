@@ -1,6 +1,6 @@
 @php
-use App\Walkers\DropdownWalker; 
-use App\Walkers\MobileDropdownWalker; 
+use App\Walkers\DropdownWalker;
+use App\Walkers\MobileDropdownWalker;
 @endphp
 
 <header x-data="{ mobileOpen: false }" class="relative top-0 z-50 bg-white shadow-md masthead fixed-top">
@@ -17,15 +17,20 @@ use App\Walkers\MobileDropdownWalker;
 		@if (has_nav_menu('primary_navigation'))
 		<nav class="mx-6 nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
 			{!! wp_nav_menu([
-                'theme_location' => 'primary_navigation',
-                'menu_class' => 'nav flex gap-x-5 lg:gap-x-8 text-sm font-medium items-center', // Usunięto 'nav-link' jeśli jest zbędne
-                'container' => false,
-                'echo' => false,
-                'walker' => new DropdownWalker(), 
+			'theme_location' => 'primary_navigation',
+			'menu_class' => 'nav flex gap-x-5 lg:gap-x-8 text-sm font-medium items-center', // Usunięto 'nav-link' jeśli jest zbędne
+			'container' => false,
+			'echo' => false,
+			'walker' => new DropdownWalker(),
 			]) !!}
 		</nav>
 		@endif
-		<a class="small-btn" href="/kontakt">Umów bezpłatną konsultację</a>
+		<div class="flex items-center gap-x-4">
+			<a class="small-btn" href="/kontakt">Umów bezpłatną konsultację</a>
+			<a class="__lang"href="http://en.roszakconsulting.com/">
+				<img src="http://rce.local/wp-content/uploads/2025/10/uk.svg" />
+			</a>
+		</div>
 	</div>
 
 	<!-- Mobile Header Bar -->
@@ -82,11 +87,11 @@ use App\Walkers\MobileDropdownWalker;
 			@if (has_nav_menu('primary_navigation'))
 			<nav class="flex flex-col space-y-1">
 				{!! wp_nav_menu([
-				    'theme_location' => 'primary_navigation',
-				    'menu_class' => 'nav-mobile flex flex-col space-y-2',
-				    'container' => false,
-				    'echo' => false,
-                    'walker' => new MobileDropdownWalker(),
+				'theme_location' => 'primary_navigation',
+				'menu_class' => 'nav-mobile flex flex-col space-y-2',
+				'container' => false,
+				'echo' => false,
+				'walker' => new MobileDropdownWalker(),
 				]) !!}
 			</nav>
 			@endif
@@ -95,6 +100,7 @@ use App\Walkers\MobileDropdownWalker;
 				<a href="/kontakt/" class="block w-full  main-btn">
 					Umów konsultację
 				</a>
+
 			</div>
 		</div>
 	</div>

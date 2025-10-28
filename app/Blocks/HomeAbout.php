@@ -59,28 +59,6 @@ class HomeAbout extends Block
 			])
 			->endGroup()
 
-			/*--- GRUPA #2 ---*/
-			->addTab('Sekcja 2', ['placement' => 'top'])
-			->addGroup('about2', ['label' => ''])
-			->addImage('image2', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
-			])
-			->addText('title2', ['label' => 'Tytuł'])
-			->addWysiwyg('content2', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
-				'wpautop' => false,
-			])
-			->addLink('cta2', [
-				'label' => 'Przycisk',
-				'return_format' => 'array',
-			])
-			->endGroup()
-
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
