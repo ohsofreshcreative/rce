@@ -18,7 +18,7 @@ $customClass = $block->data['className'] ?? '';
 
 <!--- team -->
 
-<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="text-image relative -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
+<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="b-team text-image relative -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
 
 	<div class="__wrapper c-main relative">
 		<div class="w-full md:w-1/2 m-auto text-center text-white">
@@ -27,14 +27,14 @@ $customClass = $block->data['className'] ?? '';
 				{!! $g_team['txt'] !!}
 			</div>
 		</div>
-		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-10 mt-10">
+		<!--<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-10 mt-10">
 			@if (!empty($g_team['image']))
 			<div data-gsap-element="img" class="__img order1">
 				<img class="object-cover w-full __img img-m" src="{{ $g_team['image']['url'] }}" alt="{{ $g_team['image']['alt'] ?? '' }}">
 			</div>
 			@endif
 
-			<div class="__content order2">
+			 <div class="__content order2">
 				<h4 data-gsap-element="header" class="">{{ $g_team['subtitle'] }}</h4>
 				<div data-gsap-element="txt" class="mt-2">
 					{!! $g_team['content'] !!}
@@ -42,8 +42,23 @@ $customClass = $block->data['className'] ?? '';
 				@if (!empty($g_team['button']))
 				<a data-gsap-element="btn" class="main-btn m-btn" href="{{ $g_team['button']['url'] }}">{{ $g_team['button']['title'] }}</a>
 				@endif
-			</div>
+			</div> 
 
+		</div>-->
+
+		<div class="__cards grid gap-24 mt-20">
+			@if (!empty($r_team))
+			@foreach ($r_team as $item)
+			<div class="__card grid grid-cols-1 md:grid-cols-2 items-center gap-10 relative">
+				<img class="aspect-square w-full object-cover object-top b-corners-s mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+				<div>
+					<h3 class="m-title primary">{{ $item['title'] }}</h3>
+					<div class="">{!! $item['text'] !!}</div>
+				</div>
+
+			</div>
+			@endforeach
+			@endif
 		</div>
 
 </section>

@@ -24,6 +24,7 @@
 @import '../css/blocks/scope.scss';
 @import '../css/blocks/cases-slider.scss';
 @import '../css/blocks/contact.scss';
+@import '../css/blocks/team.scss';
 
 @import 'swiper/css';
 @import 'swiper/css/navigation';

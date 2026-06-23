@@ -64,6 +64,32 @@ class Team extends Block
 			])
 			->endGroup()
 
+			/*--- ZESPÓŁ ---*/
+			->addTab('Zespół', ['placement' => 'top'])
+
+			->addRepeater('r_team', [
+				'label' => 'Kafelki',
+				'layout' => 'table', // 'row', 'block', albo 'table'
+				'min' => 1,
+				'max' => 4,
+				'button_label' => 'Dodaj kafelek'
+			])
+			->addImage('image', [
+				'label' => 'Zdjęcie',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+			])
+			->addText('title', [
+				'label' => 'Imię i nazwisko',
+			])
+			->addWysiwyg('text', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
+			])
+			->endRepeater()
+
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
@@ -141,6 +167,7 @@ class Team extends Block
 	{
 		return [
 			'g_team' => get_field('g_team'),
+			'r_team' => get_field('r_team'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),

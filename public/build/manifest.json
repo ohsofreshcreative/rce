@@ -4,12 +4,12 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CAKy9Xrk.css",
+    "file": "assets/app-BkrDUiGq.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-DjqYRDCn.css",
+    "file": "assets/editor-B7bYRN82.css",
     "src": "resources/css/editor.css",
     "isEntry": true
   },
@@ -18,7 +18,7 @@
     "src": "resources/images/ohsofresh.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-BgBOM8-0.js",
+    "file": "assets/app-uzG0ciio.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

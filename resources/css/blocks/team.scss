@@ -1,0 +1,24 @@
+.b-team {
+	h3 {
+		color:var(--p-300) !important;
+	}
+	strong, b {
+		display:block;
+		color:var(--p-400) !important;
+		margin-bottom:16px;
+		font-size:24px;
+	}
+	.__cards {
+		.__card {
+			&:nth-child(even) {
+				@media (min-width: 768px) {
+					grid-template-columns: 1fr 1fr;
+					& > img {
+						order: 2;
+					}
+				}
+			}
+		}
+	}
+
+}
